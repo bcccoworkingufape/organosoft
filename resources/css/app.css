@@ -1,3 +1,162 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+@layer components {
+  body {
+    @apply bg-body-bg;
+    height: 100vh;
+  }
+
+  .organosoft-main {
+    @apply md:w-full;
+    min-height: calc(100% - 64px - 3em);
+    width: 100%;
+    max-width: 1200px;
+    margin: 1.5em auto;
+    padding: 0 1.5em;
+  }
+
+  .organosoft-main__title {
+    @apply text-4xl;
+    @apply font-bold;
+    @apply text-center;
+    @apply text-primary;
+    padding-bottom: 1rem;
+  }
+
+  .organosoft-main__body {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  
+  .organosoft-main__body main {
+    @apply bg-white;
+    flex: 1 1 70%;
+    padding: 1.5em;
+  }
+
+  .organosoft-main__body section {
+    flex: 1 1 100;
+    padding: 1.5em;
+  }
+  
+
+  .organosoft-main__body aside {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding-left: 1.5em;
+  }
+
+  .organosoft-main__body aside > * {
+    width: 100%;
+  }
+
+  .organosoft-card {
+    @apply bg-white;
+    padding: 1em;
+  }
+
+  .organosoft-btn {
+    @apply transition-colors;
+    @apply bg-primary;
+    @apply py-2;
+    @apply px-6;
+    @apply font-semibold;
+    @apply text-white;
+  }
+  
+  .organosoft-btn:hover {
+    @apply bg-primary-dark;
+  }
+
+  .organosoft-form-control {
+    @apply pt-4;
+    @apply flex;
+    @apply flex-col;
+  }
+
+  .organosoft-label {
+    @apply text-sm;
+    @apply text-neutral-500;
+  }
+
+  .organosoft-input {
+    @apply transition-colors;
+    border: none;
+    border-bottom: 2px solid theme('colors.neutral.300');
+  }
+
+  .organosoft-input:focus {
+    @apply ring-0;
+    border: none;
+    border-bottom: 2px solid theme('colors.primary');
+  }
+  
+  .organosoft-checkbox, .organosoft-radio {
+    border: 2px solid theme('colors.neutral.300');
+  }
+
+  .organosoft-checkbox:focus, .organosoft-radio:focus {
+    @apply ring-0;
+    border: 2px solid theme('colors.primary');
+  }
+
+  .organosoft-radio:focus {
+    @apply ring-2;
+    @apply ring-primary;
+  }
+
+  .organosoft-radio:hover {
+    color: theme('colors.primary-dark');
+  }
+
+  .organosoft-checkbox:checked, .organosoft-radio:checked {
+    @apply bg-primary;
+    border: 2px solid theme('colors.primary');
+  }
+
+  .organosoft-checkbox:checked:focus, .organosoft-radio:checked:focus {
+    @apply bg-primary;
+    border: 2px solid theme('colors.primary');
+  }
+
+  .organosoft-select {
+    border: none;
+    border-bottom: 2px solid theme('colors.neutral.300');
+  }
+
+  .organosoft-select:focus {
+    @apply ring-0;
+    border-bottom: 2px solid theme('colors.primary');
+  }
+
+  .organosoft-datepicker {
+    border: none;
+    border-bottom: 2px solid theme('colors.neutral.300');
+  }
+
+  .organosoft-datepicker:focus {
+    @apply ring-0;
+    border: none;
+    border-bottom: 2px solid theme('colors.primary');
+  }
+
+  .organosoft-login-card {
+    @apply bg-white;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    margin: 2em;
+  }
+
+  .organosoft-login-card__logo {
+    text-align: center;
+  }
+}

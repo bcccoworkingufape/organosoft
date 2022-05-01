@@ -25,4 +25,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/residuos', function () {
+        return view('residuos-home');
+    })->name('residuos');
 });
