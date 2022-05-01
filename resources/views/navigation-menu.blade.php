@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-primary text-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,15 +6,19 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        OrganoSoft
                     </a>
                 </div>
 
+                <div class="my-auto sm:mx-6 mx-4 bg-transparent border-l-2 border-solid border-white h-12 w-1"></div>
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:flex">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-jet-nav-link>
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('residuos') }}" :active="request()->routeIs('residuos')">
+                        Resíduos
+                    </x-nav-link>
                 </div>
             </div>
 
