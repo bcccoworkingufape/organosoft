@@ -13,15 +13,10 @@ class Produtor extends Model
 
     protected $table = 'produtores';
 
-    protected $fillable = ['nome', 'cnpj', 'telefone', 'email', 'user_id', 'endereco_id'];
+    protected $fillable = ['nome', 'cnpj', 'telefone', 'email', 'user_id'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-    // public function endereco()
-    // {
-    //     return $this->belongsTo(Endereco::class);
-    // }
 }
