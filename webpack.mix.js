@@ -15,7 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-    ]);
+    ])
+    .scripts('node_modules/jquery/dist/jquery.js', 'public/js/jquery.js')
+    .scripts('node_modules/jquery-mask-plugin/dist/jquery.mask.js', 'public/js/jquery.mask.js');
 
 if (mix.inProduction()) {
     mix.version();
