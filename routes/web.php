@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdutorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,7 @@ Route::middleware([
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');
+    Route::resource('produtores', ProdutorController::class)->parameters([
+        'produtores' => 'produtor',
+    ]);
 });

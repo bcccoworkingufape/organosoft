@@ -31,7 +31,7 @@
     flex-wrap: wrap;
     height: 100%;
   }
-  
+
   .organosoft-main__body main {
     @apply bg-white;
     flex: 1 1 70%;
@@ -39,10 +39,10 @@
   }
 
   .organosoft-main__body section {
-    flex: 1 1 100;
+    flex: 1 1 100%;
     padding: 1.5em;
   }
-  
+
 
   .organosoft-main__body aside {
     flex: 0 0 30%;
@@ -70,7 +70,7 @@
     @apply font-semibold;
     @apply text-white;
   }
-  
+
   .organosoft-btn:hover {
     @apply bg-primary-dark;
   }
@@ -97,7 +97,7 @@
     border: none;
     border-bottom: 2px solid theme('colors.primary');
   }
-  
+
   .organosoft-checkbox, .organosoft-radio {
     border: 2px solid theme('colors.neutral.300');
   }
@@ -112,7 +112,7 @@
     @apply ring-primary;
   }
 
-  .organosoft-radio:hover {
+  .organosoft-radio:hover, .organosoft-checkbox:hover {
     color: theme('colors.primary-dark');
   }
 
