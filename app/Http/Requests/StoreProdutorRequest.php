@@ -13,7 +13,7 @@ class StoreProdutorRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('create', Produtor::class);
     }
 
     /**
