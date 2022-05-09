@@ -28,6 +28,12 @@ class StoreProdutorRequest extends FormRequest
             'cnpj' => ['required', 'string', 'cnpj', 'unique:produtores'],
             'telefone' => ['required', 'string', 'celular_com_ddd'],
             'email' => ['required', 'string', 'email'],
+            'cep' => ['required', 'string','min:9','max:9'],
+            'bairro' => ['required', 'string', 'max:255'],
+            'rua' => ['required', 'string', 'max:255'],
+            'numero' => ['required', 'string', 'max:255'],
+            'estado' => ['required', 'string', 'max:255'],
+            'cidade' => ['required', 'string', 'max:255']
         ];
     }
 
