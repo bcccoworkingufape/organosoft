@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produtores', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('cnpj');
-            $table->string('telefone');
-            $table->string('email');
-            $table->foreignId('user_id')->constrained();
-            $table->softDeletes();
+            $table->string('cep');
+            $table->string('cidade');
+            $table->string('estado');
+            $table->string('rua');
+            $table->string('bairro');
+            $table->string('numero');
+            $table->string('complemento');
+            $table->string('pontoReferencia');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtores');
+        Schema::dropIfExists('enderecos');
     }
 };

@@ -19,4 +19,9 @@ class Produtor extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function endereco()
+    {
+        return $this->hasOne(Endereco::class);
+    }
 }
