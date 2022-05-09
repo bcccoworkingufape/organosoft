@@ -18,6 +18,8 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/jquery.js') }}"></script>
+    <script src="{{ mix('js/jquery.mask.js') }}"></script>
 </head>
 <body>
     @livewire('navigation-menu')
