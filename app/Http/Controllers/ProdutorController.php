@@ -91,7 +91,20 @@ class ProdutorController extends Controller
     public function update(UpdateProdutorRequest $request, Produtor $produtor)
     {
         $produtor->fill($request->validated());
+
+        $endereco = $produtor->endereco;
+        $endereco->cep = $request->cep;
+        $endereco->bairro = $request->bairro;
+        $endereco->rua = $request->rua;
+        $endereco->numero = $request->numero;
+        $endereco->estado = $request->estado;
+        $endereco->cidade = $request->cidade;
+        $endereco->complemento = $request->complemento;
+        $endereco->ponto_referencia = $request->ponto_referencia;
+
+        $endereco->update();
         $produtor->save();
+        
         return redirect()->route('produtores.edit', $produtor)->withStatus('Produtor atualizado com sucesso!');
     }
 
