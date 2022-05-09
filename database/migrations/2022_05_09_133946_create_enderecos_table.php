@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('rua');
             $table->string('bairro');
             $table->string('numero');
-            $table->string('complemento');
-            $table->string('pontoReferencia');
+            $table->string('complemento')->nullable();
+            $table->string('ponto_referencia')->nullable();
             $table->timestamps();
         });
     }
