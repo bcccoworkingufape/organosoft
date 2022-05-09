@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('complemento')->nullable();
             $table->string('ponto_referencia')->nullable();
             $table->timestamps();
+
         });
     }
 
