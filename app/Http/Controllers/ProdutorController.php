@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProdutorRequest;
 use App\Http\Requests\UpdateProdutorRequest;
+use App\Models\Endereco;
 use App\Models\Produtor;
 
 class ProdutorController extends Controller
@@ -50,6 +51,9 @@ class ProdutorController extends Controller
     public function store(StoreProdutorRequest $request)
     {
         $produtor = new Produtor($request->validated());
+        $endereco = new Endereco($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
+        $endereco->save();
+        $produtor->endereco_id = $endereco->id;
         $produtor->user()->associate($request->user());
         $produtor->save();
         return redirect()->route('produtores.create')->withStatus('Produtor salvo com sucesso!');
