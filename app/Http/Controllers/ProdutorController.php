@@ -91,7 +91,7 @@ class ProdutorController extends Controller
     public function update(UpdateProdutorRequest $request, Produtor $produtor)
     {
         $produtor->fill($request->validated());
-
+        $produtor->endereco->fill($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco = $produtor->endereco;
         $endereco->cep = $request->cep;
         $endereco->bairro = $request->bairro;
@@ -101,10 +101,11 @@ class ProdutorController extends Controller
         $endereco->cidade = $request->cidade;
         $endereco->complemento = $request->complemento;
         $endereco->ponto_referencia = $request->ponto_referencia;
-
-        $endereco->update();
+        $produtor->endereco->fill($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
+       
+        $produtor->endereco->update();
         $produtor->save();
-        
+
         return redirect()->route('produtores.edit', $produtor)->withStatus('Produtor atualizado com sucesso!');
     }
 
