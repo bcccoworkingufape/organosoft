@@ -28,4 +28,8 @@ Route::middleware([
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');
+
+    Route::get('/veiculos', function () {
+        return view('veiculos-home');
+    })->name('veiculos');
 });
