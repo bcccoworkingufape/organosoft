@@ -24,18 +24,18 @@ class VeiculoController extends Controller
         return view('veiculo.index', compact('veiculos'));
     }
 
-    // public function create()
-    // {
-    //     return view('categoriaVeiculo.create');
-    // }
+    public function create()
+    {
+        return view('veiculo.create');
+    }
 
-    // public function store(StoreCategoriaVeiculoRequest $request)
-    // {
-    //     $categoriaVeiculo = new CategoriaVeiculo($request->validated());
-    //     $categoriaVeiculo->user()->associate($request->user());
-    //     $categoriaVeiculo->save();
-    //     return redirect()->route('categoriaVeiculos.create')->withStatus("Categoria de veículos salva com sucesso!");
-    // }
+    public function store(StoreVeiculoRequest $request)
+    {
+        $veiculo = new Veiculo($request->validated());
+        $veiculo->user()->associate($request->user());
+        $veiculo->save();
+        return redirect()->route('veiculos.create')->withStatus("Veículo salvo com sucesso!");
+    }
 
     // public function edit(CategoriaVeiculo $categoriaVeiculo)
     // {

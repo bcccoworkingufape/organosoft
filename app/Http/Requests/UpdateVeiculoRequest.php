@@ -25,10 +25,12 @@ class UpdateVeiculoRequest extends FormRequest
     public function rules()
     {
         return [
-            'marca' => [ 'string', 'min:5', 'max:255'],
-            'chassi' => ['string', 'min:5', 'max:45'],
-            'placa' => ['string', 'min:5', 'max:45'],
-            'ano' => ['string', 'min:5', 'max:255']
+            'marca' => ['required', 'string', 'min:5', 'max:255'],
+            'chassi' => ['required', 'string', 'min:5', 'max:45'],
+            'placa' => ['required', 'string', 'min:5', 'max:45'],
+            'ano' => ['required', 'string', 'min:5', 'max:255'],
+            'categorias_veiculos_id' => ['required', 'int']
+
         ];
     }
 
