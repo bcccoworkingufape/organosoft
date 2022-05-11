@@ -9,19 +9,19 @@ use App\Http\Requests\UpdateCategoriaVeiculoRequest;
 
 class CategoriaVeiculoController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->authorizeResource(CategoriaVeiculo:: class, 'categoriaVeiculo');
     }
 
-    public function index() 
+    public function index()
     {
         $categoriaVeiculos = auth()->user()->categoriaVeiculos;
         return view('categoriaVeiculo.index', compact('categoriaVeiculos'));
     }
 
-    public function create() 
+    public function create()
     {
         return view('categoriaVeiculo.create');
     }

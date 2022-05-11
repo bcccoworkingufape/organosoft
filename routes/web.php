@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\CategoriaVeiculoController;
-use App\Http\Controllers\VeiculosController;
+use App\Http\Controllers\VeiculoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +30,10 @@ Route::middleware([
         return view('residuos-home');
     })->name('residuos');
 
-    Route::resource('categoriaVeiculos', VeiculosController::class)->parameters([
+    Route::resource('veiculos', VeiculoController::class)->parameters([
         'veiculos' => 'veiculo',
     ]);
+
     Route::resource('categoriaVeiculos', CategoriaVeiculoController::class)->parameters([
         'categoriasVeiculos' => 'categoriaVeiculo',
     ]);

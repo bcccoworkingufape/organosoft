@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Veiculo;
-class VeiculosController extends Controller
+use App\Http\Requests\StoreVeiculoRequest;
+use Mockery\Generator\StringManipulation\Pass\Pass;
+
+class VeiculoController extends Controller
 {
 
     public function __construct()
     {
-        $this->authorizeResource(Veiculo:: class, 'veiculo');
+        // $this->authorizeResource(Veiculo:: class, 'veiculo');
     }
 
     public function index()
     {
-        $veiculos = auth()->user()->veiculos;
+        #error
+        // $veiculos = auth()->user()->veiculos;
+        $veiculos = [];
+
         return view('veiculo.index', compact('veiculos'));
     }
 
