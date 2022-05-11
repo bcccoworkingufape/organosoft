@@ -7,80 +7,52 @@ use App\Models\Veiculo;
 class VeiculosController extends Controller
 {
 
-    // Model de categoria adicionado ao controller para evitar uso estatico
-
-    protected $veiculo;
-
-
-    public function __construct(Veiculo $veiculo)
+    public function __construct()
     {
-
-        $this->veiculo= $veiculo;
-
+        $this->authorizeResource(Veiculo:: class, 'veiculo');
     }
 
     public function index()
     {
-        $registros = $this->categoria->latest()->get();
-        return view('auth.categorias.index', compact('registros'));
+        $veiculos = auth()->user()->veiculos;
+        return view('veiculo.index', compact('veiculos'));
     }
 
-    // public function adicionar()
+    // public function create()
     // {
-    //     $disciplinas = $this->disciplina->all();
-    //     return view('auth.categorias.adicionar', compact('disciplinas'));
-
+    //     return view('categoriaVeiculo.create');
     // }
 
-    // public function salvar(CategoriaRequest $request)
+    // public function store(StoreCategoriaVeiculoRequest $request)
     // {
-    //     $request['nome'] = strtolower($request['nome']);
-    //     $request->validated();
-
-    //     $dados = $request->all();
-
-    //     if($this->buscarCategoriaDisciplina($dados['nome'], $dados['disciplina_id']) != 0) {
-    //         return redirect()->back()->withErrors(['nome' => 'Essa área de conhecimento já existe nesse assunto'])->withInput();
-    //     }
-
-    //     $categotia = $this->categoria->create($dados);
-    //     $categotia['slug'] = str_slug($categotia->nome).'-'.$categotia->id;
-    //     $categotia->update($categotia->attributesToArray());
-    //     return redirect()->route('auth.categorias')->with('success', 'Área de conhecimento adicionada com sucesso!');
+    //     $categoriaVeiculo = new CategoriaVeiculo($request->validated());
+    //     $categoriaVeiculo->user()->associate($request->user());
+    //     $categoriaVeiculo->save();
+    //     return redirect()->route('categoriaVeiculos.create')->withStatus("Categoria de veículos salva com sucesso!");
     // }
 
-    // public function editar(Categoria $registro)
+    // public function edit(CategoriaVeiculo $categoriaVeiculo)
     // {
-    //     $disciplinas = $this->disciplina->all();
-    //     return view('auth.categorias.editar', compact('registro', 'disciplinas'));
-
+    //     return view('categoriaVeiculo.edit', compact('categoriaVeiculo'));
     // }
 
-    // public function atualizar(CategoriaRequest $request, $identifier)
+    // public function update(StoreCategoriaVeiculoRequest $request, CategoriaVeiculo $categoriaVeiculo)
     // {
-    //     $request['nome'] = strtolower($request['nome']);
-    //     $request->validated();
+    //     $categoriaVeiculo->descricao = $request->descricao;
+    //     $categoriaVeiculo->update();
+    //     $categoriaVeiculo->save();
 
-    //     $dados = $request->all();
-
-    //     if($this->buscarCategoriaDisciplina($dados['nome'], $dados['disciplina_id']) != 0) {
-    //         return redirect()->back()->withErrors(['nome' => 'Essa área de conhecimento já existe nesse assunto ou você está tentando colocar o mesmo nome'])->withInput();
-    //     }
-
-    //     $dados['slug'] = str_slug($dados['nome']).'-'.$identifier;
-    //     $this->categoria->find($identifier)->update($dados);
-    //     return redirect()->route('auth.categorias')->with('success', 'Área de conhecimento atualizada com sucesso!');;
+    //     return redirect()->route('categoriaVeiculos.edit', $categoriaVeiculo)->withStatus("Categoria de veículos atualizada com sucesso!");;
     // }
 
-    // public function deletar(Categoria $registro)
+    // public function show(CategoriaVeiculo $categoriaVeiculo)
     // {
-    //     $registro->delete();
-    //     return redirect()->route('auth.categorias')->with('success', 'Área de conhecimento deletada com sucesso!');;
+    //     return view('categoriaVeiculos.show', compact('categoriaVeiculo'));
     // }
 
-    // public function buscarCategoriaDisciplina($nome, $disciplina_id) {
-    //     return $this->categoria->where('nome', $nome)
-    //                 ->where('disciplina_id', $disciplina_id)
-    //                 ->count();
+    // public function deletar($identifier)
+    // {
+    //     $this->categoriaVeiculos->find($identifier)->delete();
+    //     return redirect()->route('categoriaVeiculos');
     // }
 }
