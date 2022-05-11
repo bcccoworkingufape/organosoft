@@ -963,7 +963,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     height: 100%;
-  }
+}
 .organosoft-main__body main {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1221,6 +1221,8 @@ body {
 }
 .flex {
   display: flex;
+  padding: 0.2em;
+  margin: 0.2em;
 }
 .inline-flex {
   display: inline-flex;
@@ -1389,6 +1391,7 @@ body {
 }
 .flex-wrap {
   flex-wrap: wrap;
+  padding: 0.3em;
 }
 .items-center {
   align-items: center;

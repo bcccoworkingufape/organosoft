@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categoria_veiculos', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
             $table->id();
             $table->string('descricao');
             $table->timestamps();
