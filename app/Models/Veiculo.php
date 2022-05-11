@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Veiculo extends Model
 {
-    use HasFactory;
+    protected $fillable = ['marca','chassi','placa','ano','categorias_veiculos_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
