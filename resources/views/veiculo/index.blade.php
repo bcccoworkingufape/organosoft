@@ -1,6 +1,6 @@
 <x-auth>
     <x-slot name="veiculo">
-        Categoria de Veículos
+        Veículos
     </x-slot>
     <x-slot name="bg_main">
         <x-validation-errors class="mb-4" />
@@ -28,7 +28,7 @@
     <x-slot name="side_content">
         <a href="{{route('veiculos.create')}}" class="organosoft-btn flex justify-center">
             <img src="{{asset('img/plus-white.svg')}}" alt="icon plus" class="mr-1 w-6">
-            Adicionar categoria de veículos
+            Adicionar veículos
         </a>
         <x-card class="h-32"></x-card>
         <x-card class="h-32"></x-card>

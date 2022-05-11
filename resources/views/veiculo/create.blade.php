@@ -1,6 +1,6 @@
 <x-auth>
     <x-slot name="title">
-        Cadastrar Categoria de Veículo
+        Cadastrar Veículo
     </x-slot>
     <x-slot name="bg_main">
         <form id="form" action="{{route('veiculos.store')}}" method="POST" class="justify-center flex">

@@ -5,21 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Veiculo;
 use App\Http\Requests\StoreVeiculoRequest;
-use Mockery\Generator\StringManipulation\Pass\Pass;
+use App\Http\Requests\UpdateVeiculoRequest;
+
 
 class VeiculoController extends Controller
 {
 
     public function __construct()
     {
+
         // $this->authorizeResource(Veiculo:: class, 'veiculo');
     }
 
+
     public function index()
     {
-        #error
-        // $veiculos = auth()->user()->veiculos;
-        $veiculos = [];
+        $veiculos = auth()->user()->veiculos;
 
         return view('veiculo.index', compact('veiculos'));
     }
@@ -37,28 +38,33 @@ class VeiculoController extends Controller
         return redirect()->route('veiculos.create')->withStatus("Veículo salvo com sucesso!");
     }
 
-    // public function edit(CategoriaVeiculo $categoriaVeiculo)
-    // {
-    //     return view('categoriaVeiculo.edit', compact('categoriaVeiculo'));
-    // }
+    public function edit(Veiculo $veiculo)
+    {
+        return view('veiculo.edit', compact('veiculo'));
+    }
 
-    // public function update(StoreCategoriaVeiculoRequest $request, CategoriaVeiculo $categoriaVeiculo)
-    // {
-    //     $categoriaVeiculo->descricao = $request->descricao;
-    //     $categoriaVeiculo->update();
-    //     $categoriaVeiculo->save();
+    public function update(UpdateVeiculoRequest $request, veiculo $veiculo)
+    {
+        $veiculo->marca = $request->marca;
+        $veiculo->placa = $request->placa;
+        $veiculo->chassi = $request->chassi;
+        $veiculo->ano = $request->ano;
+        $veiculo->categorias_veiculos_id = $request->categorias_veiculos_id;
 
-    //     return redirect()->route('categoriaVeiculos.edit', $categoriaVeiculo)->withStatus("Categoria de veículos atualizada com sucesso!");;
-    // }
+        $veiculo->update();
+        $veiculo->save();
 
-    // public function show(CategoriaVeiculo $categoriaVeiculo)
-    // {
-    //     return view('categoriaVeiculos.show', compact('categoriaVeiculo'));
-    // }
+        return redirect()->route('veiculos.edit', $veiculo)->withStatus("Veículo atualizado com sucesso!");;
+    }
 
-    // public function deletar($identifier)
-    // {
-    //     $this->categoriaVeiculos->find($identifier)->delete();
-    //     return redirect()->route('categoriaVeiculos');
-    // }
+    public function show(veiculo $veiculo)
+    {
+        return view('veiculos.show', compact('veiculo'));
+    }
+
+    public function deletar($identifier)
+    {
+        $this->veiculos->find($identifier)->delete();
+        return redirect()->route('veiculos');
+    }
 }
