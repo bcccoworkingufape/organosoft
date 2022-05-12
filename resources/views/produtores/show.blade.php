@@ -19,8 +19,8 @@
                         <a href="mailto:{{$produtor->email}}" class="text-gray-500 font-medium">{{$produtor->email}}</a>
                     </div>
                 </div>
-                <div class="pr-4 pt-6">
-                    <a href="{{route('produtores.granjas.create', $produtor)}}" class="w-3/4 organosoft-btn flex justify-center">
+                <div class=" pr-4 pt-6 my-8">
+                    <a href="{{route('produtores.granjas.index', $produtor)}}" class="w-3/4 organosoft-btn flex justify-center">
                         Granjas
                     </a>
                 </div>
