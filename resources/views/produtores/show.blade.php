@@ -19,7 +19,13 @@
                         <a href="mailto:{{$produtor->email}}" class="text-gray-500 font-medium">{{$produtor->email}}</a>
                     </div>
                 </div>
+                <div class="pr-4 pt-6">
+                    <a href="{{route('produtores.granjas.create', $produtor)}}" class="w-3/4 organosoft-btn flex justify-center">
+                        Granjas
+                    </a>
+                </div>
                 <div class="w-1/4">CONTRATOS</div>
+
             </x-card>
             <x-card class=" w-full grid">
                 <h1 class="mt-3 mb-3 text-primary text-2xl font-bold w-full">Endereço</h1>
