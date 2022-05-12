@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGranjaRequest;
+use App\Http\Requests\UpdateGranjaRequest;
 use App\Models\Endereco;
 use App\Models\Granja;
 use App\Models\Produtor;
@@ -15,9 +16,13 @@ class GranjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($produtor)
     {
-        //
+        $produtor = Produtor::find($produtor);
+        $granjas = $produtor->granjas;
+
+        //dd($granjas);
+        return view('granjas.index', compact('produtor','granjas'));
     }
 
     /**
@@ -43,10 +48,10 @@ class GranjaController extends Controller
         $endereco->save();
         $granja->endereco_id = $endereco->id;
         $granja->quant_aves = $request->quant_aves;
-        $granja->produtores_id =  $produtor->id;
+        $granja->produtor_id =  $produtor->id;
         $granja->save();
 
-       return view('produtores.show', compact('produtor'));
+       return view('granjas.index', compact('produtor'));
     }
 
     /**
@@ -57,7 +62,7 @@ class GranjaController extends Controller
      */
     public function show(Granja $granja)
     {
-        //
+        return view('granjas.show', compact('granja'));
     }
 
     /**
@@ -68,7 +73,7 @@ class GranjaController extends Controller
      */
     public function edit(Granja $granja)
     {
-        //
+        return view('granjas.edit', compact('granja'));
     }
 
     /**
@@ -78,9 +83,21 @@ class GranjaController extends Controller
      * @param  \App\Models\Granja  $granja
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Granja $granja)
+    public function update(UpdateGranjaRequest $request, Granja $granja)
     {
-        //
+        $granja->fill($request->validated());
+        $endereco = $granja->endereco;
+        $endereco->cep = $request->cep;
+        $endereco->bairro = $request->bairro;
+        $endereco->rua = $request->rua;
+        $endereco->numero = $request->numero;
+        $endereco->estado = $request->estado;
+        $endereco->cidade = $request->cidade;
+        $endereco->complemento = $request->complemento;
+        $endereco->ponto_referencia = $request->ponto_referencia;
+        $endereco->update();
+        $granja->save();
+        return redirect()->route('granjas.edit',$granja)->withStatus('Edição de granja feita com sucesso!');
     }
 
     /**

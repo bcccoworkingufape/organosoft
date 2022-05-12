@@ -25,7 +25,7 @@ class Produtor extends Model
         return $this->belongsTo(Endereco::class);
     }
 
-    public function granja()
+    public function granjas()
     {
         return $this->hasMany(Granja::class);
     }

@@ -36,5 +36,5 @@ Route::middleware([
     Route::resource('produtores.granjas', GranjaController::class)->parameters([
         'granjas' => 'granja',
         'produtores' => 'produtor',
-    ]);
+    ])->shallow();
 });

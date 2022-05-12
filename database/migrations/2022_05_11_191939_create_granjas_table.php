@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->integer('quant_aves')->nullable();
-            $table->foreignId('produtores_id')->constrained();
+            $table->foreignId('produtor_id')->constrained('produtores');
             $table->foreignId('endereco_id')->constrained();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

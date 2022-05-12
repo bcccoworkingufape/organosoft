@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Granja extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     protected $fillable = ['nome', 'quant_aves'];
 
     public function endereco()
@@ -17,6 +20,6 @@ class Granja extends Model
 
     public function produtor()
     {
-        return $this->belongsTo(Produtor::class);
+        return $this->belongsTo(Produtor::class,'produtor_id');
     }
 }
