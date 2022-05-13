@@ -27,7 +27,8 @@ class VeiculoController extends Controller
 
     public function create()
     {
-        return view('veiculo.create');
+        $categorias = auth()->user()->categoriaVeiculos;
+        return view('veiculo.create', compact('categorias'));
     }
 
     public function store(StoreVeiculoRequest $request)
@@ -40,7 +41,8 @@ class VeiculoController extends Controller
 
     public function edit(Veiculo $veiculo)
     {
-        return view('veiculo.edit', compact('veiculo'));
+        $categorias = auth()->user()->categoriaVeiculos;
+        return view('veiculo.edit', compact('veiculo', 'categorias'));
     }
 
     public function update(UpdateVeiculoRequest $request, Veiculo $veiculo)
@@ -60,7 +62,8 @@ class VeiculoController extends Controller
 
     public function show(Veiculo $veiculo)
     {
-        return view('veiculos.show', compact('veiculo'));
+        $categorias = auth()->user()->categoriaVeiculos;
+        return view('veiculo.show', compact('veiculo', 'categorias'));
     }
 
     public function deletar($identifier)

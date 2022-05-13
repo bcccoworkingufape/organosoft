@@ -14,7 +14,7 @@
             </a>
             @break
         @default
-            <x-button wire:click.prevent="toggleModal" class="flex justify-center">
+            <x-button wire:click.prevent="toggleModal">
                 @switch($cor)
                     @case('white')
                         <img src="{{asset('img/trash-white.svg')}}" class="w-6 mr-1" alt="botao deletar">

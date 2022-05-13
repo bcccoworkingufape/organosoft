@@ -17,16 +17,37 @@
                 <x-form-control class="w-full">
                     <x-label for="marca" value="Marca:" />
                     <x-input id="marca" type="text" name="marca" value="{{old('marca', $veiculo)}}"/>
+                </x-form-control>
+                <x-form-control class="w-full">
                     <x-label for="modelo" value="Modelo:" />
                     <x-input id="modelo" type="text" name="modelo" value="{{old('modelo', $veiculo)}}"/>
+                </x-form-control>
+                <x-form-control class="w-full">
                     <x-label for="chassi" value="Chassi:" />
                     <x-input id="chassi" type="text" name="chassi" value="{{old('chassi', $veiculo)}}"/>
+                </x-form-control>
+                <x-form-control class="w-full">
                     <x-label for="placa" value="Placa:" />
                     <x-input id="placa" type="text" name="placa" value="{{old('placa', $veiculo)}}"/>
+                </x-form-control>
+                <x-form-control class="w-full">
                     <x-label for="ano" value="Ano:" />
                     <x-input id="ano" type="text" name="ano" value="{{old('ano', $veiculo)}}"/>
+                </x-form-control>
+                <x-form-control class="w-full">
                     <x-label for="categorias_veiculos_id" value="Categoria do Veículo:" />
                     <x-input id="categorias_veiculos_id" type="text" name="categorias_veiculos_id" value="{{old('categorias_veiculos_id', $veiculo)}}"/>
+                </x-form-control>
+                <x-form-control class="w-full">
+                    <x-label for="categoriaVeiculo_id" value="Categoria do Veículo:"></x-label>
+                    <x-select name="categorias_veiculos_id" id="categorias_veiculos_id">
+                        <option value="" disabled>Selecione uma opção</option>
+                        @foreach($categorias as $categoria)
+                            <option value="{{ $categoria->id }}" {{ $categoria->id == $veiculo->categorias_veiculos_id ? 'selected' : '' }}>
+                                {{ $categoria->descricao }}
+                            </option>
+                        @endforeach
+                    </x-select>
                 </x-form-control>
             </x-form>
         </form>
