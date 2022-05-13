@@ -16,6 +16,8 @@
                 <x-form-control class="w-full">
                     <x-label for="marca" value="Marca:" />
                     <x-input id="marca" type="text" name="marca" value="{{old('marca')}}"/>
+                    <x-label for="modelo" value="Modelo:" />
+                    <x-input id="modelo" type="text" name="modelo" value="{{old('modelo')}}"/>
                     <x-label for="chassi" value="Chassi:" />
                     <x-input id="chassi" type="text" name="chassi" value="{{old('chassi')}}"/>
                     <x-label for="placa" value="Placa:" />
@@ -23,7 +25,7 @@
                     <x-label for="ano" value="Ano:" />
                     <x-input id="ano" type="text" name="ano" value="{{old('ano')}}"/>
                     <x-label for="categoriaVeiculo_id" value="Categoria do Veículo:" />
-                    <x-input id="categoriaVeiculo_id" type="text" name="categoriaVeiculo_id" value="{{old('categoriaVeiculo_id')}}"/>
+                    <x-input id="categorias_veiculos_id" type="text" name="categorias_veiculos_id" value="{{old('categorias_veiculos_id')}}"/>
                 </x-form-control>
             </x-form>
         </form>

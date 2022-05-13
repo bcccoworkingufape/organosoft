@@ -14,7 +14,7 @@ class VeiculoController extends Controller
     public function __construct()
     {
 
-        // $this->authorizeResource(Veiculo:: class, 'veiculo');
+        $this->authorizeResource(Veiculo:: class, 'veiculo');
     }
 
 
@@ -43,9 +43,10 @@ class VeiculoController extends Controller
         return view('veiculo.edit', compact('veiculo'));
     }
 
-    public function update(UpdateVeiculoRequest $request, veiculo $veiculo)
+    public function update(UpdateVeiculoRequest $request, Veiculo $veiculo)
     {
         $veiculo->marca = $request->marca;
+        $veiculo->modelo = $request->modelo;
         $veiculo->placa = $request->placa;
         $veiculo->chassi = $request->chassi;
         $veiculo->ano = $request->ano;
@@ -57,7 +58,7 @@ class VeiculoController extends Controller
         return redirect()->route('veiculos.edit', $veiculo)->withStatus("Veículo atualizado com sucesso!");;
     }
 
-    public function show(veiculo $veiculo)
+    public function show(Veiculo $veiculo)
     {
         return view('veiculos.show', compact('veiculo'));
     }

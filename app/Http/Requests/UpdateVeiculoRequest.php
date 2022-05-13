@@ -26,11 +26,11 @@ class UpdateVeiculoRequest extends FormRequest
     {
         return [
             'marca' => ['required', 'string', 'min:5', 'max:255'],
+            'modelo' => ['required', 'string', 'min:5', 'max:255'],
             'chassi' => ['required', 'string', 'min:5', 'max:45'],
             'placa' => ['required', 'string', 'min:5', 'max:45'],
             'ano' => ['required', 'string', 'min:5', 'max:255'],
             'categorias_veiculos_id' => ['required', 'int']
-
         ];
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Veiculo extends Model
 {
-    protected $fillable = ['marca','chassi','placa','ano','categorias_veiculos_id'];
+    protected $fillable = ['marca','modelo','chassi','placa','ano','categorias_veiculos_id'];
 
     public function user()
     {
