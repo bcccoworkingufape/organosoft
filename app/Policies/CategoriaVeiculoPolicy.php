@@ -33,7 +33,7 @@ class CategoriaVeiculoPolicy
         return $user->id == $categoriaVeiculo->user_id;
     }
 
-    
+
     /**
      * Determine whether the user can create models.
      *

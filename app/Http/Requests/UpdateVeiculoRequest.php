@@ -14,7 +14,7 @@ class UpdateVeiculoRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->can('update', $this->route('produtor'));
+        return true;
     }
 
     /**

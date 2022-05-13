@@ -30,7 +30,7 @@ class VeiculoPolicy
      */
     public function view(User $user, Veiculo $veiculo)
     {
-        return $user->id == $veiculo->user_id;
+        return true;
     }
 
 
@@ -54,6 +54,6 @@ class VeiculoPolicy
      */
     public function update(User $user, Veiculo $veiculo)
     {
-        return $user->id == $veiculo->user_id;
+        return true;
     }
 }
