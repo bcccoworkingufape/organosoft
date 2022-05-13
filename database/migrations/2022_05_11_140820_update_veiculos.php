@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categoria_veiculos', function (Blueprint $table) {
+        Schema::table('veiculos', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
-            $table->id();
-            $table->string('descricao');
-            $table->timestamps();
 
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria_veiculos');
+        //
     }
 };

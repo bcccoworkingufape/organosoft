@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categoria_veiculos', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->id();
-            $table->string('descricao');
-            $table->timestamps();
+        Schema::table('veiculos', function (Blueprint $table) {
+            $table->unsignedBigInteger('categorias_veiculos_id');
+            $table->foreign('categorias_veiculos_id')->references('id')->on('categoria_veiculos');
 
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria_veiculos');
+        //
     }
 };
