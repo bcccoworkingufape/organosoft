@@ -1,5 +1,5 @@
 <x-auth>
-    <x-slot name="veiculo">
+    <x-slot name="title">
         Veículos
     </x-slot>
     <x-slot name="bg_main">
@@ -9,27 +9,32 @@
                 {{ session('status') }}
             </div>
         @endif
-        @foreach ($veiculos as $veiculo)
-            <div class="flex flex-wrap w-full mb-4">
-                <div class="w-5/6 flex flex-wrap">
-                    <a href="{{route('veiculos.show', $veiculo)}}" class="flex w-full text-primary text-3xl font-bold">{{$veiculo->marca}}</a>
-                    <p class="text-sm text-gray-500">Cliente desde {{$veiculo->created_at->year}}</p>
+        <div class="organosoft-list">
+            @foreach ($veiculos as $veiculo)
+                <div class="organosoft-list__item">
+                    <div class="organosoft-list__item__icon">
+                        <img src="{{asset('img/car.svg')}}" alt="link editar">
+                    </div>
+                    <div class="w-5/6 flex flex-wrap">
+                        <a href="{{route('veiculos.show', $veiculo)}}" class="flex w-full text-primary text-3xl font-bold">{{$veiculo->marca}}</a>
+                        <p class="text-sm text-gray-500">{{$veiculo->placa}}</p>
+                    </div>
+                    <div class="flex place-items-center">
+                        <a class="mr-2 w-6" href="{{route('veiculos.edit', $veiculo)}}" title="Editar veículo">
+                            <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
+                        </a>
+                        <livewire:deletar-veiculo :veiculo="$veiculo" :tipo="'icon'">
+                    </div>
                 </div>
-                <div class="flex place-items-center">
-                    <a class="mr-2 w-6" href="{{route('veiculos.edit', $veiculo)}}" title="Editar veículo">
-                        <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
-                    </a>
-                    <livewire:deletar-veiculo :veiculo="$veiculo" :tipo="'icon'">
-                </div>
-            </div>
-            <hr class="mb-2">
-        @endforeach
+                <hr class="mb-2">
+            @endforeach
+        </div>
     </x-slot>
     <x-slot name="side_content">
-        <a href="{{route('veiculos.create')}}" class="organosoft-btn flex justify-center">
-            <img src="{{asset('img/plus-white.svg')}}" alt="icon plus" class="mr-1 w-6">
+        <x-link href="{{route('veiculos.create')}}">
+            <img src="{{asset('img/plus-white.svg')}}" alt="icon plus"> 
             Adicionar veículos
-        </a>
+        </x-link>
         <x-card class="h-32"></x-card>
         <x-card class="h-32"></x-card>
         <x-card class="h-32"></x-card>

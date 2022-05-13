@@ -35,20 +35,33 @@
 
         <div class="organosoft-main__body">
             @if(isset($bg_main))
-                <main>
-                    {{ $bg_main }}
-                </main>
+                <div class="organosoft-main__body__container">
+                    <main>
+                        {{ $bg_main }}
+                    </main>
+    
+                    @if(isset($bottom_buttons))
+                        <section class="organosoft-main_bottom-buttons">
+                            {{ $bottom_buttons }}
+                        </section>
+                    @endif
+                </div>
             @elseif(isset($no_bg_main))
                 <section>
                     {{ $no_bg_main }}
                 </section>
             @endif
     
+            @if (isset($free))
+                {{ $free }}
+            @endif
+
             @if (isset($side_content))
                 <aside>
                     {{ $side_content }}
                 </aside>
             @endif
+
         </div>
     </div>
 
