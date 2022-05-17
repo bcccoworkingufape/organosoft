@@ -8,12 +8,14 @@
             @csrf
             @method('PUT')
             <x-form class="pt-4 w-2/3 flex flex-wrap">
-                <x-validation-errors class="mb-4" />
-                @if (session('status'))
-                    <div class="mb-4 font-medium text-sm text-green-600">
-                        {{ session('status') }}
-                    </div>
-                @endif
+                <div class="w-full">
+                    <x-validation-errors class="mb-4" />
+                    @if (session('status'))
+                        <div class="mb-4 font-medium text-sm text-green-600">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                </div>
                 <x-form-control class="w-1/2 pr-4">
                     <x-label for="nome" value="Nome da Granja:" />
                     <x-input id="nome" type="text" name="nome" value="{{old('nome',$granja->nome)}}" required/>
