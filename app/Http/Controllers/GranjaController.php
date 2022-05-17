@@ -47,11 +47,11 @@ class GranjaController extends Controller
         $endereco = new Endereco($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco->save();
         $granja->endereco_id = $endereco->id;
-        $granja->quant_aves = $request->quant_aves;
         $granja->produtor_id =  $produtor->id;
         $granja->save();
+        $granjas = $produtor->granjas;
 
-       return view('granjas.index', compact('produtor'));
+       return view('granjas.index', compact('produtor', 'granjas'))->with(['status', 'Granja cadastrada com sucesso!']);
     }
 
     /**
