@@ -92,28 +92,10 @@ class ProdutorController extends Controller
     {
         $produtor->fill($request->validated());
         $endereco = $produtor->endereco;
-        $endereco->cep = $request->cep;
-        $endereco->bairro = $request->bairro;
-        $endereco->rua = $request->rua;
-        $endereco->numero = $request->numero;
-        $endereco->estado = $request->estado;
-        $endereco->cidade = $request->cidade;
-        $endereco->complemento = $request->complemento;
-        $endereco->ponto_referencia = $request->ponto_referencia;
+        $endereco->fill($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco->update();
         $produtor->save();
 
         return redirect()->route('produtores.edit', $produtor)->withStatus('Produtor atualizado com sucesso!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Produtor  $produtor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Produtor $produtor)
-    {
-        //
     }
 }

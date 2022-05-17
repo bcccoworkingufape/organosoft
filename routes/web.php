@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GranjaController;
 use App\Http\Controllers\ProdutorController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,9 @@ Route::middleware([
     })->name('residuos');
     Route::resource('produtores', ProdutorController::class)->parameters([
         'produtores' => 'produtor',
-    ]);
+    ])->except('destroy');
+    Route::resource('produtores.granjas', GranjaController::class)->parameters([
+        'granjas' => 'granja',
+        'produtores' => 'produtor',
+    ])->except('destroy')->shallow();
 });
