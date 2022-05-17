@@ -32,9 +32,9 @@ Route::middleware([
     })->name('residuos');
     Route::resource('produtores', ProdutorController::class)->parameters([
         'produtores' => 'produtor',
-    ]);
+    ])->except('destroy');
     Route::resource('produtores.granjas', GranjaController::class)->parameters([
         'granjas' => 'granja',
         'produtores' => 'produtor',
-    ])->shallow();
+    ])->except('destroy')->shallow();
 });
