@@ -25,9 +25,9 @@
                     <x-input id="quant_aves" type="text" name="quant_aves" value="{{old('quant_aves',$granja->quant_aves)}}"/>
                 </x-form-control>
                 <h1 class="mt-5 mb-3 text-primary text-2xl font-bold w-full">Endereço</h1>
-                <x-form-control class="w-1/2 pr-4">
-                    <x-label for="CEP" value="CEP:" />
-                    <x-input type="cep" id="cep" name="cep" class="pt-2" value="{{old('cep',$granja->endereco->cep)}}" onblur="pesquisacep(this.value)" required/>
+                <x-form-control class="w-1/2 pr-4 pt-2">
+                    <x-label for="cep" value="CEP:" />
+                    <x-input type="text" id="cep" name="cep" value="{{old('cep',$granja->endereco->cep)}}" onblur="pesquisacep(this.value)" required/>
                 </x-form-control>
                 <x-form-control class="w-1/2 pl-4 pt-2">
                     <x-label for="bairro" value="Bairro:" />
