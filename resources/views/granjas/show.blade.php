@@ -4,7 +4,7 @@
             <x-card class="w-full flex">
                 <div class="w-2/3">
                     <h1 class="text-primary text-3xl font-bold">{{$granja->nome}}</h1>
-                    <p class="text-sm text-gray-500">Quantidade de Aves{{$granja->quant_aves}}</p>
+                    <p class="text-sm text-gray-500">Quantidade de aves {{$granja->quant_aves}}</p>
                     <p class="text-sm text-gray-500">Cliente desde {{$granja->created_at->year}}</p>
                 </div>
                 <div class="w-1/4">CONTRATO</div>
