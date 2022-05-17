@@ -26,6 +26,7 @@ class StoreGranjaRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'string', 'min:5', 'max:255'],
+            'quant_aves' => ['nullable', 'integer'],
             'cep' => ['required', 'string','min:9','max:9'],
             'bairro' => ['required', 'string', 'max:255'],
             'rua' => ['required', 'string', 'max:255'],
