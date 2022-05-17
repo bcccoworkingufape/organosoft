@@ -100,14 +100,4 @@ class GranjaController extends Controller
         return redirect()->route('granjas.edit',$granja)->withStatus('Edição de granja feita com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Granja  $granja
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Granja $granja)
-    {
-        //
-    }
 }

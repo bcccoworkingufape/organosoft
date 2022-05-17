@@ -105,15 +105,4 @@ class ProdutorController extends Controller
 
         return redirect()->route('produtores.edit', $produtor)->withStatus('Produtor atualizado com sucesso!');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Produtor  $produtor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Produtor $produtor)
-    {
-        //
-    }
 }
