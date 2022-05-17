@@ -92,14 +92,7 @@ class ProdutorController extends Controller
     {
         $produtor->fill($request->validated());
         $endereco = $produtor->endereco;
-        $endereco->cep = $request->cep;
-        $endereco->bairro = $request->bairro;
-        $endereco->rua = $request->rua;
-        $endereco->numero = $request->numero;
-        $endereco->estado = $request->estado;
-        $endereco->cidade = $request->cidade;
-        $endereco->complemento = $request->complemento;
-        $endereco->ponto_referencia = $request->ponto_referencia;
+        $endereco->fill($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco->update();
         $produtor->save();
 
