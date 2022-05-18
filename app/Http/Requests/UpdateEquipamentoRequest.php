@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateVeiculoRequest extends FormRequest
+class UpdateEquipamentoRequest extends FormRequest
 {
     /**
      * Determina se o usuário está autorizado a fazer essa solicitação.
@@ -25,12 +25,8 @@ class UpdateVeiculoRequest extends FormRequest
     public function rules()
     {
         return [
-            'marca' => ['required', 'string', 'min:1', 'max:255'],
-            'modelo' => ['required', 'string', 'min:1', 'max:255'],
-            'chassi' => ['required', 'string', 'min:5', 'max:45'],
-            'placa' => ['required', 'string', 'min:5', 'max:45'],
-            'ano' => ['required', 'string', 'min:4', 'max:4'],
-            'categorias_id' => ['required', 'int']
+            'nome' => ['required', 'string', 'min:1', 'max:255'],
+            'data_compra' => ['required', 'date']
         ];
     }
 

@@ -35,10 +35,6 @@
                     <x-input id="ano" type="text" name="ano" value="{{old('ano', $veiculo)}}"/>
                 </x-form-control>
                 <x-form-control class="w-full">
-                    <x-label for="categorias_veiculos_id" value="Categoria do Veículo:" />
-                    <x-input id="categorias_veiculos_id" type="text" name="categorias_veiculos_id" value="{{old('categorias_veiculos_id', $veiculo)}}"/>
-                </x-form-control>
-                <x-form-control class="w-full">
                     <x-label for="categoriaVeiculo_id" value="Categoria do Veículo:"></x-label>
                     <x-select name="categorias_veiculos_id" id="categorias_veiculos_id">
                         <option value="" disabled>Selecione uma opção</option>
