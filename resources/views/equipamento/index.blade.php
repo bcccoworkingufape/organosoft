@@ -12,9 +12,6 @@
         <div class="organosoft-list">
             @foreach ($equipamentos as $equipamento)
                 <div class="organosoft-list__item">
-                    <div class="organosoft-list__item__icon">
-                        <img src="{{asset('img/car.svg')}}" alt="link editar">
-                    </div>
                     <div class="w-5/6 flex flex-wrap">
                         <a href="{{route('equipamentos.show', $equipamento)}}" class="flex w-full text-primary text-3xl font-bold">{{$equipamento->nome}}</a>
                         <p class="text-sm text-gray-500">{{$equipamento->data_compra}}</p>

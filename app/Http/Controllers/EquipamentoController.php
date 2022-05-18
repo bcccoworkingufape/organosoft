@@ -58,8 +58,7 @@ class EquipamentoController extends Controller
 
     public function show(Equipamento $equipamento)
     {
-        $fabricas = auth()->user()->fabricas;
-        return view('equipamento.show', compact('equipamento', 'equipamentos'));
+        return view('equipamento.show', compact('equipamento'));
     }
 
     public function deletar($identifier)

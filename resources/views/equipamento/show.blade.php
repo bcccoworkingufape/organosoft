@@ -3,9 +3,7 @@
     </x-slot>
     <x-slot name="bg_main">
         <div class="organosoft-vehicle-details">
-            <div class="organosoft-vehicle-details__icon">
-                <img src="{{asset('img/car.svg')}}" alt="link editar">
-            </div>
+           
             <div class="organosoft-vehicle-details__info">
                 <a href="{{route('equipamentos.show', $equipamento)}}" class="flex w-full text-primary text-3xl font-bold">{{$equipamento->nome}}</a>
                 <p class="text-sm text-gray-500">{{$equipamento->data_compra}}</p>
