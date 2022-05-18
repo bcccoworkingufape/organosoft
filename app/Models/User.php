@@ -69,4 +69,14 @@ class User extends Authenticatable
         return $this->hasMany(Veiculo::class);
     }
 
+    public function equipamentos()
+    {
+        return $this->hasMany(Equipamento::class);
+    }
+
+    public function fabricas()
+    {
+        return $this->hasMany(Fabrica::class);
+    }
+
 }

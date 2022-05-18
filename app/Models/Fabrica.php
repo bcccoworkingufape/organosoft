@@ -18,4 +18,9 @@ class Fabrica extends Model
     {
         return $this->hasMany(Veiculo::class);
     }
+
+    public function equipamentos()
+    {
+        return $this->hasMany(Equipamento::class);
+    }
 }
