@@ -14,7 +14,7 @@ class UpdateEquipamentoRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->can('update', $this->route('produtor'));
+        return true;
     }
 
     /**
@@ -26,8 +26,7 @@ class UpdateEquipamentoRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'string', 'min:1', 'max:255'],
-            'data_compra' => ['required', 'date'],
-            'fabricas_id' => ['required', 'int']
+            'data_compra' => ['required', 'date']
         ];
     }
 

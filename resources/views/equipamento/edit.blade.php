@@ -22,17 +22,6 @@
                     <x-label for="data_compra" value="Data de Compra:" />
                     <x-input id="data_compra" type="date" name="data_compra" value="{{old('data_compra', $equipamento)}}"/>
                 </x-form-control>
-                <x-form-control class="w-full">
-                    <x-label for="fabricas_id" value="fabrica do Veículo:"></x-label>
-                    <x-select name="fabricas_id" id="fabricas_id">
-                        <option value="" disabled>Selecione uma opção</option>
-                        @foreach($fabricas as $fabrica)
-                            <option value="{{ $fabrica->id }}" {{ $fabrica->id == $equipamento->fabricas_id ? 'selected' : '' }}>
-                                {{ $fabrica->descricao }}
-                            </option>
-                        @endforeach
-                    </x-select>
-                </x-form-control>
             </x-form>
         </form>
         <div class="flex justify-center">
