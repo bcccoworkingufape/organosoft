@@ -25,6 +25,9 @@
                     <x-nav-link href="{{ route('categoriaVeiculos.index') }}" :active="request()->routeIs('categoriaVeiculos.*')">
                         Categoria de Veículos
                     </x-nav-link>
+                    <x-nav-link href="{{ route('equipamentos.index') }}" :active="request()->routeIs('equipamentos.*')">
+                        Equipamentos
+                    </x-nav-link>
                 </div>
             </div>
 

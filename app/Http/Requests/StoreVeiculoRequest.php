@@ -24,11 +24,11 @@ class StoreVeiculoRequest extends FormRequest
     public function rules()
     {
         return [
-            'marca' => ['required', 'string', 'min:5', 'max:255'],
-            'modelo' => ['required', 'string', 'min:5', 'max:255'],
+            'marca' => ['required', 'string', 'min:1', 'max:255'],
+            'modelo' => ['required', 'string', 'min:1', 'max:255'],
             'chassi' => ['required', 'string', 'min:5', 'max:45'],
             'placa' => ['required', 'string', 'min:5', 'max:45'],
-            'ano' => ['required', 'string', 'min:5', 'max:255'],
+            'ano' => ['required', 'string', 'min:4', 'max:4'],
             'categorias_veiculos_id' => ['required', 'int']
         ];
     }
