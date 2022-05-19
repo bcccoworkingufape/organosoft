@@ -1,6 +1,6 @@
 <x-auth>
     <x-slot name="title">
-        Categoria de Veículos
+       Máquinas
     </x-slot>
     <x-slot name="bg_main">
         <x-validation-errors class="mb-4" />
@@ -10,17 +10,17 @@
             </div>
         @endif
         <div class="organosoft-list">
-            @foreach ($categoriaVeiculos as $categoriaVeiculo)
+            @foreach ($maquinas as $maquina)
                 <div class="organosoft-list__item">
                     <div class="w-5/6 flex flex-wrap">
-                        <a class="flex w-full text-primary text-3xl font-bold">{{$categoriaVeiculo->descricao}}</a>
-                        <p class="text-sm text-gray-500">&nbsp;</p>
+                        <a href="{{route('maquinas.show', $maquina)}}" class="flex w-full text-primary text-3xl font-bold">{{$maquina->marca}}</a>
+                        <p class="text-sm text-gray-500">{{$maquina->placa}}</p>
                     </div>
                     <div class="flex place-items-center">
-                        <a class="mr-2 w-6" href="{{route('categoriaVeiculos.edit', $categoriaVeiculo)}}" title="Editar categoria de veículos">
+                        <a class="mr-2 w-6" href="{{route('maquinas.edit', $maquina)}}" title="Editar máquina">
                             <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
                         </a>
-                        <livewire:deletar-categoria-veiculo :categoriaVeiculo="$categoriaVeiculo" :tipo="'icon'">
+                        <livewire:deletar-maquina :maquina="$maquina" :tipo="'icon'">
                     </div>
                 </div>
                 <hr class="mb-2">
@@ -28,10 +28,10 @@
         </div>
     </x-slot>
     <x-slot name="side_content">
-        <a href="{{route('categoriaVeiculos.create')}}" class="organosoft-btn flex justify-center">
-            <img src="{{asset('img/plus-white.svg')}}" alt="icon plus" class="mr-1 w-6">
-            Adicionar categoria de veículos
-        </a>
+        <x-link href="{{route('maquinas.create')}}">
+            <img src="{{asset('img/plus-white.svg')}}" alt="icon plus"> 
+            Adicionar máquinas
+        </x-link>
         <x-card class="h-32"></x-card>
         <x-card class="h-32"></x-card>
         <x-card class="h-32"></x-card>

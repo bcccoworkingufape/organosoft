@@ -78,5 +78,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Fabrica::class);
     }
+    
+    public function maquinas()
+    {
+        return $this->hasMany(Maquina::class);
+    }
 
 }

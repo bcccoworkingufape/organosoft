@@ -13,4 +13,9 @@ class Equipamento extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function maquinas()
+    {
+        return $this->hasMany(Maquina::class);
+    }
 }

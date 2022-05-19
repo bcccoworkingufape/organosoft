@@ -27,6 +27,9 @@
                     </x-nav-link>
                     <x-nav-link href="{{ route('equipamentos.index') }}" :active="request()->routeIs('equipamentos.*')">
                         Equipamentos
+                    </x-nav-link>    
+                    <x-nav-link href="{{ route('maquinas.index') }}" :active="request()->routeIs('maquinas.*')">
+                        Máquinas
                     </x-nav-link>
                 </div>
             </div>
