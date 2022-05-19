@@ -13,7 +13,7 @@
             @foreach ($categoriaVeiculos as $categoriaVeiculo)
                 <div class="organosoft-list__item">
                     <div class="w-5/6 flex flex-wrap">
-                        <a href="{{route('categoriaVeiculos.show', $categoriaVeiculo)}}" class="flex w-full text-primary text-3xl font-bold">{{$categoriaVeiculo->descricao}}</a>
+                        <a class="flex w-full text-primary text-3xl font-bold">{{$categoriaVeiculo->descricao}}</a>
                         <p class="text-sm text-gray-500">&nbsp;</p>
                     </div>
                     <div class="flex place-items-center">
