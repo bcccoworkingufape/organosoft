@@ -67,7 +67,8 @@ class ProdutorController extends Controller
      */
     public function show(Produtor $produtor)
     {
-        return view('produtores.show', compact('produtor'));
+        $granjas = $produtor->granjas;
+        return view('produtores.show', compact('produtor', 'granjas'));
     }
 
     /**
