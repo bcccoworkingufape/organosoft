@@ -34,7 +34,9 @@ class UpdateProdutorRequest extends FormRequest
             'rua' => ['required', 'string', 'max:255'],
             'numero' => ['required', 'string', 'max:255'],
             'estado' => ['required', 'string', 'max:255'],
-            'cidade' => ['required', 'string', 'max:255']
+            'cidade' => ['required', 'string', 'max:255'],
+            'complemento' => ['nullable','string','max:255'],
+            'ponto_referencia' => ['nullable','string','max:255'],
         ];
     }
 
