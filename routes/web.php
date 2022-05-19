@@ -36,5 +36,6 @@ Route::middleware([
     Route::resource('produtores.granjas', GranjaController::class)->parameters([
         'granjas' => 'granja',
         'produtores' => 'produtor',
-    ])->except('destroy')->shallow();
+    ])->except(['destroy', 'index'])->shallow();
+    Route::get('granjas', [GranjaController::class, 'index'])->name('granjas.index');
 });

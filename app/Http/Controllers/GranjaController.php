@@ -16,13 +16,9 @@ class GranjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($produtor)
-    {
-        $produtor = Produtor::find($produtor);
-        $granjas = $produtor->granjas;
-
-        //dd($granjas);
-        return view('granjas.index', compact('produtor','granjas'));
+    public function index() {
+        $granjas = Granja::all();
+        return view('granjas.index', compact('granjas'));
     }
 
     /**

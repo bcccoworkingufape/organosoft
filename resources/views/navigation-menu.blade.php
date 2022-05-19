@@ -22,6 +22,9 @@
                     <x-nav-link href="{{ route('produtores.index') }}" :active="request()->routeIs('produtores.*')">
                         Produtores
                     </x-nav-link>
+                    <x-nav-link href="{{ route('granjas.index') }}" :active="request()->routeIs('granjas.index')">
+                        Granjas
+                    </x-nav-link>
                 </div>
             </div>
 
