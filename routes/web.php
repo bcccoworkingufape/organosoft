@@ -2,6 +2,7 @@
 use App\Http\Controllers\CategoriaVeiculoController;
 use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\EquipamentoController;
+use App\Http\Controllers\MaquinaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,5 +42,9 @@ Route::middleware([
 
     Route::resource('equipamentos', EquipamentoController::class)->parameters([
         'equipamentos' => 'equipamento',
+    ]);
+    
+    Route::resource('maquinas', MaquinaController::class)->parameters([
+        'maquinas' => 'maquina',
     ]);
 });
