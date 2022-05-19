@@ -96,8 +96,11 @@
                 </x-form-control>
             </x-form>
         </form>
-        <div class="flex justify-center">
-            <x-button class="mt-4" form="form">
+        <div class="flex justify-around mt-4">
+            <a href="{{route('produtores.show', $produtor)}}" class="bg-red-600 hover:bg-red-700 organosoft-btn">
+                Cancelar
+            </a>
+            <x-button form="form">
                 Atualizar
             </x-button>
         </div>
