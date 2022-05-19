@@ -94,5 +94,7 @@
             </x-button>
         </div>
     </x-slot>
-    <script src="{{asset('js/estado-cidade.js')}}"></script>
+    @push('modals')
+        <script src="{{asset('js/estado-cidade.js')}}"></script>
+    @endpush
 </x-auth>
