@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class TipoItemEspacoFabrica extends Model
 {
     use HasFactory;
+
+    public function espacosFabricas()
+    {
+        $this->hasMany(EspacosFabrica::class);
+    }
 }

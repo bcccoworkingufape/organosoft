@@ -23,8 +23,7 @@ class MaquinaController extends Controller
 
     public function index()
     {
-        $fabrica = Fabrica::where('user_id', auth()->user()->id)->first();
-        $maquinas = Maquina::where('fabrica_id', $fabrica->id)->get();
+        $maquinas = Maquina::where('fabrica_id', auth()->user()->fabrica_id)->get();
 
         return view('maquina.index', compact('maquinas'));
     }
@@ -32,8 +31,8 @@ class MaquinaController extends Controller
     public function create()
     {
        
-        $fabrica = Fabrica::where('user_id', auth()->user()->id)->first();
-        $equipamentos = Equipamento::where('fabricas_id', $fabrica->id)->get();
+        $fabrica = Fabrica::where('id', auth()->user()->fabrica_id)->first();
+        $equipamentos = Equipamento::where('fabricas_id', auth()->user()->fabrica_id)->get();
         return view('maquina.create', compact('equipamentos', 'fabrica'));
     }
 
@@ -47,8 +46,8 @@ class MaquinaController extends Controller
 
     public function edit(Maquina $maquina)
     {
-        $fabrica = Fabrica::where('user_id', auth()->user()->id)->first();
-        $equipamentos = Equipamento::where('fabricas_id', $fabrica->id)->get();
+        $fabrica = Fabrica::where('id', auth()->user()->fabrica_id)->first();
+        $equipamentos = Equipamento::where('fabricas_id', auth()->user()->fabrica_id)->get();
         return view('maquina.edit', compact('maquina', 'equipamentos', 'fabrica'));
     }
 
@@ -70,8 +69,8 @@ class MaquinaController extends Controller
 
     public function show(Maquina $maquina)
     {
-        $fabrica = Fabrica::where('user_id', auth()->user()->id)->first();
-        $equipamentos = Equipamento::where('fabricas_id', $fabrica->id)->get();
+        $fabrica = Fabrica::where('id', auth()->user()->fabrica_id)->first();
+        $equipamentos = Equipamento::where('fabricas_id', auth()->user()->fabrica_id)->get();
         return view('maquina.show', compact('maquina', 'equipamentos', 'fabrica'));
     }
 
