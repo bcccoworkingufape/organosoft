@@ -12,19 +12,25 @@
 
                 <div class="my-auto sm:mx-6 mx-4 bg-transparent border-l-2 border-solid border-white h-12 w-1"></div>
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:flex">
+                <div class="hidden space-x-2 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('residuos') }}" :active="request()->routeIs('residuos')">
-                        Resíduos
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('veiculos.index') }}" :active="request()->routeIs('veiculos.*')">
-                        Veículos
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('categoriaVeiculos.index') }}" :active="request()->routeIs('categoriaVeiculos.*')">
-                        Categoria de Veículos
-                    </x-nav-link>
+                    <livewire:dropdown-menu 
+                        :name="'Infraestrutura'"
+                        :links="[
+                            [ 
+                                'route' => route('veiculos.index'),
+                                'name' => 'Veículos',
+                                'active' => request()->routeIs('veiculos.*')
+                            ],
+                            [ 
+                                'route' => route('categoriaVeiculos.index'),
+                                'name' => 'Categoria de Veículos',
+                                'active' => request()->routeIs('categoriaVeiculos.*')
+                            ],
+                        ]">
+                    </livewire:dropdown-menu>
                 </div>
             </div>
 
