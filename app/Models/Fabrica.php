@@ -28,4 +28,14 @@ class Fabrica extends Model
     {
         return $this->hasMany(Maquina::class);
     }
+
+    public function usuarios()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function espacosFabricas()
+    {
+        return $this->hasMany(EspacosFabrica::class);
+    }
 }
