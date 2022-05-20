@@ -6,6 +6,7 @@ use App\Http\Requests\StoreContratoRequest;
 use App\Http\Requests\UpdateContratoRequest;
 use App\Models\Contrato;
 use App\Models\Produtor;
+use Illuminate\Support\Facades\Storage;
 
 class ContratoController extends Controller
 {
@@ -27,8 +28,7 @@ class ContratoController extends Controller
      */
     public function create(Produtor $produtor)
     {
-        $granjas = $produtor->granjas;
-        return view('contratos.create', compact('produtor', 'granjas'));
+        return view('contratos.create', compact('produtor'));
     }
 
     /**
@@ -85,7 +85,21 @@ class ContratoController extends Controller
      */
     public function update(UpdateContratoRequest $request, Contrato $contrato)
     {
-        //
+        $validated = $request->safe()->except(['arquivo', 'granjas', 'outro']);
+        if($request->has('arquivo')) {
+            $oldArquivo = $contrato->caminho_documento;
+            $path = $request->file('arquivo')->store("/contratos", 'public');
+            if(!$path)
+                return redirect()->back()->withErrors(['arquivo' => 'Falha ao salvar o arquivo']);
+            Storage::disk('public')->delete($oldArquivo);
+            $validated['caminho_documento'] = $path;
+        }
+        if($validated['status'] == 'outro')
+            $validated['status'] = $request->safe()->only('outro')['outro'];
+        $contrato->fill($validated);
+        $contrato->granjas()->sync($request['granjas']);
+        $contrato->save();
+        return redirect()->back()->withStatus('Contrato atualizado com sucesso!');
     }
 
     /**
