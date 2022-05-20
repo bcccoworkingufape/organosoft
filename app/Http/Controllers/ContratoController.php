@@ -45,7 +45,7 @@ class ContratoController extends Controller
             return redirect()->back()->withErrors(['arquivo' => 'Falha ao salvar o arquivo']);
         $validated['caminho_documento'] = $path;
         if($validated['status'] == 'outro')
-            $validated['status'] = $request->safe()->only('outro');
+            $validated['status'] = $request->safe()->only('outro')['outro'];
         $contrato = new Contrato($validated);
         $contrato->produtor()->associate($produtor);
         $contrato->save();
