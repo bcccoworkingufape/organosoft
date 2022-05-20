@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('inicio');
             $table->date('fim');
             $table->foreignId('produtor_id')->constrained('produtores');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
