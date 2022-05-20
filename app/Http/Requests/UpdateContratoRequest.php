@@ -13,7 +13,7 @@ class UpdateContratoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -49,6 +49,7 @@ class UpdateContratoRequest extends FormRequest
     {
         return [
             'outro.required_if' => 'É necessário informar o status quando selecionar "outro".',
+            'granjas.*' => 'Selecione ao menos uma granja',
         ];
     }
 

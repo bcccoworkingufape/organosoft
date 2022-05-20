@@ -50,6 +50,7 @@ class StoreContratoRequest extends FormRequest
     {
         return [
             'outro.required_if' => 'É necessário informar o status quando selecionar "outro".',
+            'granjas.*' => 'Selecione ao menos uma granja',
         ];
     }
 
