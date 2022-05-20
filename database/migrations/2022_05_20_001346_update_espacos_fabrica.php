@@ -27,6 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('espacos_fabricas', function (Blueprint $table) {
+            $table->text('observacoes')->required()->change();
             $table->dropColumn('observacoes');
         });
     }

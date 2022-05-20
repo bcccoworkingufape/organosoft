@@ -27,7 +27,7 @@ class UpdateMaquinaRequest extends FormRequest
             'marca' => ['required', 'string', 'min:5', 'max:255'],
             'modelo' => ['required', 'string', 'min:5', 'max:255'],
             'chassi' => ['required', 'string', 'min:5', 'max:45'],
-            'placa' => ['required', 'string', 'min:8', 'max:8'],
+            'placa' => ['required', 'string', 'min:7', 'max:8'],
             'ano' => ['required', 'string', 'min:4', 'max:4'],
             'equipamento_id' => ['required', 'int'],
             'fabrica_id' => ['required', 'int']
