@@ -100,6 +100,18 @@
     @apply flex-col;
   }
 
+  .organosoft-form-control textarea {
+    @apply transition-colors;
+    border: none;
+    border-bottom: 2px solid theme('colors.neutral.300');
+  }
+
+  .organosoft-form-control textarea:focus {
+    @apply ring-0;
+    border: none;
+    border-bottom: 2px solid theme('colors.primary');
+  }
+
   .organosoft-label {
     @apply text-sm;
     @apply text-neutral-500;
@@ -193,6 +205,25 @@
 
   .organosoft-list__item__icon {
     margin-right: 1em;
+  }
+
+  .organosoft-list__item__title {
+    @apply flex;
+    @apply flex-wrap;
+  }
+
+  .organosoft-list__item__title a {
+    @apply flex;
+    @apply w-full;
+    @apply text-primary;
+    @apply text-3xl;
+    @apply font-bold;
+  }
+
+  .organosoft-list__item__title p {
+    @apply text-sm;
+    @apply text-gray-500;
+    @apply w-full;
   }
 
 

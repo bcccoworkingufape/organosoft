@@ -17,7 +17,7 @@ class CategoriaVeiculoController extends Controller
 
     public function index()
     {
-        $categoriaVeiculos = auth()->user()->categoriaVeiculos;
+        $categoriaVeiculos = auth()->user()->fabrica()->first()->categoriaVeiculos()->get();
         return view('categoriaVeiculo.index', compact('categoriaVeiculos'));
     }
 

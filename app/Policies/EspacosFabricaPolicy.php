@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\CategoriaVeiculo;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\EspacosFabrica;
 
-class CategoriaVeiculoPolicy
+class EspacosFabricaPolicy
 {
     use HandlesAuthorization;
 
@@ -25,12 +25,12 @@ class CategoriaVeiculoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\CategoriaVeiculo  $categoriaVeiculo
+     * @param  \App\Models\EspacosFabrica  $espacosFabrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, CategoriaVeiculo $categoriaVeiculo)
+    public function view(User $user, EspacosFabrica $espacosFabrica)
     {
-        return $user->fabrica_id == $categoriaVeiculo->fabrica_id;
+        return $user->fabrica_id == $espacosFabrica->fabrica_id;
     }
 
 
@@ -49,11 +49,11 @@ class CategoriaVeiculoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\CategoriaVeiculo  $categoriaVeiculo
+     * @param  \App\Models\EspacosFabrica  $espacosFabrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, CategoriaVeiculo $categoriaVeiculo)
+    public function update(User $user, EspacosFabrica $espacosFabrica)
     {
-        return $user->fabrica_id == $categoriaVeiculo->fabrica_id;
+        return $user->fabrica_id == $espacosFabrica->fabrica_id;
     }
 }

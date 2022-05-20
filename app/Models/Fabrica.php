@@ -38,5 +38,10 @@ class Fabrica extends Model
     {
         return $this->hasMany(EspacosFabrica::class);
     }
+
+    public function tipoItemEspacoFabricas()
+    {
+        return $this->hasMany(TipoItemEspacoFabrica::class);
+    }
     
 }
