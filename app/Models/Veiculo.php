@@ -9,8 +9,8 @@ class Veiculo extends Model
 {
     protected $fillable = ['marca','modelo','chassi','placa','ano','categorias_veiculos_id'];
 
-    public function user()
+    public function fabrica()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Fabrica::class);
     }
 }

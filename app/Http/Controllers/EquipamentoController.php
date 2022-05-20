@@ -17,14 +17,13 @@ class EquipamentoController extends Controller
 
     public function index()
     {
-        $equipamentos = auth()->user()->equipamentos;
-
+        $fabrica = auth()->user()->fabrica()->first();
+        $equipamentos = Equipamento::where('fabricas_id', $fabrica->id)->get();
         return view('equipamento.index', compact('equipamentos'));
     }
 
     public function create()
     {
-
         return view('equipamento.create');
     }
 
@@ -32,7 +31,6 @@ class EquipamentoController extends Controller
     {
         $equipamento = new Equipamento($request->validated());
         $equipamento->fabricas_id = auth()->user()->fabrica_id;
-        $equipamento->user()->associate($request->user());
         $equipamento->save();
         return redirect()->route('equipamentos.create')->withStatus("Equipamento salvo com sucesso!");
     }

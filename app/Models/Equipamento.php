@@ -9,9 +9,9 @@ class Equipamento extends Model
 {
     protected $fillable = ['nome','data_compra','fabricas_id'];
 
-    public function user()
+    public function fabrica()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Fabrica::class);
     }
 
     public function maquinas()
