@@ -5,7 +5,7 @@
     <x-slot name="bg_main">
         <form id="form" action="{{route('produtores.contratos.store', $produtor)}}" method="POST" enctype="multipart/form-data" class="justify-center flex">
             @csrf
-            <x-form class="pt-4 w-2/3 flex flex-wrap" x-data="{status: ''}">
+            <x-form class="pt-4 w-2/3 flex flex-wrap" x-data="{status: '{{old('status')}}'}">
                 <div class="w-full">
                     <x-validation-errors class="mb-4" />
                     @if (session('status'))
@@ -14,14 +14,7 @@
                         </div>
                     @endif
                 </div>
-                <x-form-control class="w-full">
-                    <x-label for="granjas" value="Granjas" />
-                    <x-select id="granjas" name="granjas[]" required multiple>
-                        @foreach ($granjas as $granja)
-                            <option value="{{$granja->id}}" @if(in_array($granja->id, old('granjas[]', []))) selected @endif>{{$granja->nome}}</option>
-                        @endforeach
-                    </x-select>
-                </x-form-control>
+                <livewire:select-multiple-granjas :produtor="$produtor" :old="old('granjas')" />
                 <x-form-control class="w-full">
                     <x-label for="valor" value="Valor:" />
                     <x-input id="valor" type="text" name="valor" value="{{old('valor')}}"/>
@@ -44,13 +37,13 @@
                 </x-form-control>
                 <x-form-control x-bind:class="status == 'outro' ? 'w-1/2 pr-1' : 'w-full'">
                     <x-label for="status" value="Status:" />
-                    <x-select id="status" x-model="status" name="status" value="{{old('status')}}" required>
+                    <x-select id="status" x-model="status" name="status" required>
                         <option value="" disabled selected>--Selecione o status--</option>
-                        <option :value="'construcao'">Em construção</option>
-                        <option :value="'execucao'">Em execução</option>
-                        <option :value="'cancelado'">Cancelado</option>
-                        <option :value="'encerrado'">Encerrado</option>
-                        <option :value="'outro'">Outro</option>
+                        <option @selected(old('status')) value="construcao">Em construção</option>
+                        <option @selected(old('status')) value="execucao">Em execução</option>
+                        <option @selected(old('status')) value="cancelado">Cancelado</option>
+                        <option @selected(old('status')) value="encerrado">Encerrado</option>
+                        <option @selected(old('status')) value="outro">Outro</option>
                     </x-select>
                 </x-form-control>
                 <x-form-control x-show="status == 'outro'" class="w-1/2 pl-1">
