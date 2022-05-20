@@ -28,8 +28,9 @@ class CategoriaVeiculoController extends Controller
 
     public function store(StoreCategoriaVeiculoRequest $request)
     {
+        $fabrica = auth()->user()->fabrica_id;
         $categoriaVeiculo = new CategoriaVeiculo($request->validated());
-        $categoriaVeiculo->user()->associate($request->user());
+        $categoriaVeiculo->fabrica()->associate($fabrica);
         $categoriaVeiculo->save();
         return redirect()->route('categoriaVeiculos.create')->withStatus("Categoria de veículos salva com sucesso!");
     }

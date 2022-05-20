@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class CategoriaVeiculo extends Model
 {
-    protected $fillable = ['descricao'];
+    protected $fillable = ['descricao', 'fabrica_id'];
     
-    public function user()
+    public function fabrica()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Fabrica::class);
     }
 }

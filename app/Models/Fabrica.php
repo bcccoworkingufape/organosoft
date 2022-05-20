@@ -38,4 +38,5 @@ class Fabrica extends Model
     {
         return $this->hasMany(EspacosFabrica::class);
     }
+    
 }

@@ -60,11 +60,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function categoriaVeiculos()
-    {
-        return $this->hasMany(CategoriaVeiculo::class);
-    }
-
     public function veiculos()
     {
         return $this->hasMany(Veiculo::class);
