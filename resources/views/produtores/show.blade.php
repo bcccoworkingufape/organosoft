@@ -37,14 +37,14 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{route('produtores.contratos.create', $produtor)}}" class="mt-2 md:mt-0 w-full md:w-1/4 md:h-full flex items-center justify-center">
-                    <div class="h-full md:h-4/6 w-fit mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
+                <div class="mt-2 md:mt-0 w-full md:w-1/4 md:h-full flex items-center justify-center">
+                    <a href="{{route('produtores.contratos.create', $produtor)}}"  class="h-full md:h-4/6 w-fit mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
                         <div class="mt-1 flex items-center justify-center w-full">
                             <img src="{{asset('img/doc-primary.svg')}}" alt="doc icon" class="h-4/5">
                         </div>
                         <h1 class="text-primary font-bold text-lg text-center break-normal mx-2">Visualizar<br>contratos</h1>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </x-card>
         </div>
         <div class="flex justify-around mt-2">
@@ -71,7 +71,9 @@
                     @foreach ($granjas as $granja)
                         <div class="flex flex-wrap w-full mb-4">
                             <div class="w-5/6 flex flex-wrap">
-                                <a href="{{route('granjas.show', $granja)}}" class="flex w-full text-primary text-2xl font-bold">{{$granja->nome}}</a>
+                                <div class="w-full">
+                                    <a href="{{route('granjas.show', $granja)}}" class="flex w-fit text-primary text-2xl font-bold">{{$granja->nome}}</a>
+                                </div>
                                 <p class="text-sm text-gray-500">Cliente desde {{$granja->created_at->year}}</p>
                             </div>
                             <div class="flex place-items-center">
