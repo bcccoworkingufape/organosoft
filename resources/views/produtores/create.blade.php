@@ -100,8 +100,11 @@
         </form>
 
 
-        <div class="flex justify-center">
-            <x-button class="mt-4" form="form">
+        <div class="flex justify-around mt-4">
+            <a href="{{route('produtores.index')}}" class="bg-red-600 hover:bg-red-700 organosoft-btn">
+                Cancelar
+            </a>
+            <x-button form="form">
                 Cadastrar
             </x-button>
         </div>
