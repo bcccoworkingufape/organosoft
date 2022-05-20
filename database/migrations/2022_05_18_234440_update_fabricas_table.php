@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('fabricas', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+        });
     }
 };

@@ -30,7 +30,7 @@ class UpdateVeiculoRequest extends FormRequest
             'chassi' => ['required', 'string', 'min:5', 'max:45'],
             'placa' => ['required', 'string', 'min:5', 'max:45'],
             'ano' => ['required', 'string', 'min:4', 'max:4'],
-            'categorias_id' => ['required', 'int']
+            'categorias_veiculos_id' => ['required', 'int']
         ];
     }
 

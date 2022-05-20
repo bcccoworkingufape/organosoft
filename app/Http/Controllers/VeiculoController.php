@@ -20,28 +20,28 @@ class VeiculoController extends Controller
 
     public function index()
     {
-        $veiculos = auth()->user()->veiculos;
+        $veiculos = auth()->user()->fabrica()->first()->veiculos()->get();
 
         return view('veiculo.index', compact('veiculos'));
     }
 
     public function create()
     {
-        $categorias = auth()->user()->categoriaVeiculos;
+        $categorias = auth()->user()->fabrica()->first()->categoriaVeiculos()->get();
         return view('veiculo.create', compact('categorias'));
     }
 
     public function store(StoreVeiculoRequest $request)
     {
         $veiculo = new Veiculo($request->validated());
-        $veiculo->user()->associate($request->user());
+        $veiculo->fabrica()->associate(auth()->user()->fabrica_id);
         $veiculo->save();
         return redirect()->route('veiculos.create')->withStatus("Veículo salvo com sucesso!");
     }
 
     public function edit(Veiculo $veiculo)
     {
-        $categorias = auth()->user()->categoriaVeiculos;
+        $categorias = auth()->user()->fabrica()->first()->categoriaVeiculos()->get();
         return view('veiculo.edit', compact('veiculo', 'categorias'));
     }
 

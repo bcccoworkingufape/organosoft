@@ -60,16 +60,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function veiculos()
-    {
-        return $this->hasMany(Veiculo::class);
-    }
-
-    public function equipamentos()
-    {
-        return $this->hasMany(Equipamento::class);
-    }
-
     public function fabrica()
     {
         return $this->belongsTo(Fabrica::class);
