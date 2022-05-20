@@ -20,6 +20,11 @@ class Granja extends Model
 
     public function produtor()
     {
-        return $this->belongsTo(Produtor::class,'produtor_id');
+        return $this->belongsTo(Produtor::class);
+    }
+
+    public function contratos()
+    {
+        return $this->belongsToMany(Contrato::class);
     }
 }

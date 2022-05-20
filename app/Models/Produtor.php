@@ -13,7 +13,7 @@ class Produtor extends Model
 
     protected $table = 'produtores';
 
-    protected $fillable = ['nome', 'cnpj', 'telefone', 'email', 'user_id'];
+    protected $fillable = ['nome', 'cnpj', 'telefone', 'email'];
 
     public function user()
     {

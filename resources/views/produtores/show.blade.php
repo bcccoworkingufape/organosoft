@@ -37,14 +37,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-2 md:mt-0 w-full md:w-1/4 md:h-full flex items-center justify-center">
-                    <div class="h-full md:h-4/6 w-1/2 md:w-3/4 mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
+                <a href="{{route('produtores.contratos.create', $produtor)}}" class="mt-2 md:mt-0 w-full md:w-1/4 md:h-full flex items-center justify-center">
+                    <div class="h-full md:h-4/6 w-fit mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
                         <div class="mt-1 flex items-center justify-center w-full">
                             <img src="{{asset('img/doc-primary.svg')}}" alt="doc icon" class="h-4/5">
                         </div>
-                        <h1 class="text-primary font-bold text-lg text-center break-normal mx-2">Visualizar contratos</h1>
+                        <h1 class="text-primary font-bold text-lg text-center break-normal mx-2">Visualizar<br>contratos</h1>
                     </div>
-                </div>
+                </a>
             </x-card>
         </div>
         <div class="flex justify-around mt-2">

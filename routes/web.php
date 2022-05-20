@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\GranjaController;
 use App\Http\Controllers\ProdutorController;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,7 @@ Route::middleware([
         'produtores' => 'produtor',
     ])->except(['destroy', 'index'])->shallow();
     Route::get('granjas', [GranjaController::class, 'index'])->name('granjas.index');
+    Route::resource('produtores.contratos', ContratoController::class)->parameters([
+        'produtores' => 'produtor',
+    ])->except('destroy')->shallow();
 });
