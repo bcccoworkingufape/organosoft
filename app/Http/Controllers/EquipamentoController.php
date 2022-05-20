@@ -30,9 +30,8 @@ class EquipamentoController extends Controller
 
     public function store(StoreEquipamentoRequest $request)
     {
-        $fabricas = auth()->user()->fabricas;
         $equipamento = new Equipamento($request->validated());
-        $equipamento->fabricas_id = $fabricas[0]->id;
+        $equipamento->fabricas_id = auth()->user()->fabrica_id;
         $equipamento->user()->associate($request->user());
         $equipamento->save();
         return redirect()->route('equipamentos.create')->withStatus("Equipamento salvo com sucesso!");
@@ -45,10 +44,9 @@ class EquipamentoController extends Controller
 
     public function update(UpdateEquipamentoRequest $request, Equipamento $equipamento)
     {
-        $fabricas= auth()->user()->fabricas;
         $equipamento->nome = $request->nome;
         $equipamento->data_compra = $request->data_compra;
-        $equipamento->fabricas_id = $fabricas[0]->id;
+        $equipamento->fabricas_id = auth()->user()->fabrica_id;
 
         $equipamento->update();
         $equipamento->save();

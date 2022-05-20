@@ -9,8 +9,17 @@ class TipoItemEspacoFabrica extends Model
 {
     use HasFactory;
 
+    protected $table = 'tipo_item_espaco_fabrica';
+
+    protected $fillable = ['nome'];
+
     public function espacosFabricas()
     {
-        $this->hasMany(EspacosFabrica::class);
+        return $this->hasMany(EspacosFabrica::class);
+    }
+
+    public function fabricas()
+    {
+        return $this->belongsTo(Fabrica::class);
     }
 }

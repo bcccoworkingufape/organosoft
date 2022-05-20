@@ -35,7 +35,11 @@
                                 'route' => route('maquinas.index'),
                                 'name' => 'Máquinas',
                                 'active' => request()->routeIs('maquinas.*'),
-                            ]
+                            ], [
+                                'route' => route('espacosFabrica.index'),
+                                'name' => 'Espaços da Fábrica',
+                                'active' => request()->routeIs('espacosFabrica.*'),
+                            ],
                         ]">
                     </livewire:dropdown-menu>
                 </div>

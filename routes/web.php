@@ -3,6 +3,7 @@ use App\Http\Controllers\CategoriaVeiculoController;
 use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\EquipamentoController;
 use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\EspacosFabricaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +47,9 @@ Route::middleware([
     
     Route::resource('maquinas', MaquinaController::class)->parameters([
         'maquinas' => 'maquina',
+    ]);
+
+    Route::resource('espacosFabrica', EspacosFabricaController::class)->parameters([
+        'espacosFabrica' => 'espacosFabrica'
     ]);
 });

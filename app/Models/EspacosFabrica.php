@@ -9,13 +9,15 @@ class EspacosFabrica extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nome', 'observacoes', 'tipo_item_espaco_fabrica_id', 'largura', 'altura', 'comprimento'];
+
     public function fabrica()
     { 
-        $this->belongsTo(Fabrica::class);
+        return $this->belongsTo(Fabrica::class);
     }
 
     public function tipoItemEspacoFabrica()
     {
-        $this->belongsTo(TipoItemEspacoFabrica::class);
+        return $this->belongsTo(TipoItemEspacoFabrica::class);
     }
 }
