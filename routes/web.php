@@ -42,4 +42,5 @@ Route::middleware([
     Route::resource('produtores.contratos', ContratoController::class)->parameters([
         'produtores' => 'produtor',
     ])->except('destroy')->shallow();
+    Route::get('contratos/{contrato}/documento', [ContratoController::class, 'documento'])->name('contratos.documento');
 });

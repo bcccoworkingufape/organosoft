@@ -102,14 +102,8 @@ class ContratoController extends Controller
         return redirect()->back()->withStatus('Contrato atualizado com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contrato  $contrato
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contrato $contrato)
+    public function documento(Contrato $contrato)
     {
-        //
+        return Storage::disk('public')->download($contrato->caminho_documento);
     }
 }
