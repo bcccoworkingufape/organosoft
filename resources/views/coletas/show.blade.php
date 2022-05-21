@@ -18,7 +18,7 @@
                     <a class="mr-2 w-6" href="{{route('coleta.edit', $coleta->id)}}" title="Editar coleta">
                         <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
                     </a>
-                    
+                    <livewire:deletar-coleta :coleta="$coleta" :cor="'white'">
                 </div>
             </div>
             <hr class="mb-2">
