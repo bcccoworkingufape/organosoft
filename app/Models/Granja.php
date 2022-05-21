@@ -22,4 +22,9 @@ class Granja extends Model
     {
         return $this->belongsTo(Produtor::class,'produtor_id');
     }
+
+    public function coletas()
+    {
+        return $this->hasMany(Coleta::class);
+    }
 }
