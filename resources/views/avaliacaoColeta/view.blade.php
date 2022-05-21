@@ -1,10 +1,10 @@
 <x-auth>
 
     <x-slot name="title">
-        Detalhes do Agendamento da Coleta
+        Detalhes da Avaliação da Coleta
     </x-slot>
     <x-slot name="bg_main">
-        <form id="form" action="{{route('coleta.edit', $coleta->id)}}" method="GET" class="justify-center flex">
+        <form id="form" action="{{route('qualidade.edit', $qualidade->id)}}" method="GET" class="justify-center flex">
             @csrf
             <x-form class="pt-4 w-2/3 flex flex-wrap">
                 <div class="w-full">
@@ -16,12 +16,12 @@
                     @endif
                 </div>
                 <x-form-control class="w-1/2 pl-4">
-                    <x-label for="data" value="Data da coleta:" />
-                    <x-input readonly  id="data" type="date" name="data" value="{{$coleta->data}}"/>
+                    <x-label for="avaliacaoQualidade" value="Avaliação:" />
+                    <x-input readonly  id="avaliacaoQualidade" type="text" name="avaliacaoQualidade" value="{{$qualidade->avaliacaoQualidade}}"/>
                 </x-form-control>
                 <x-form-control class="w-1/2 pr-4">
-                    <x-label for="hora" value="Hora da Coleta:" />
-                    <x-input readonly id="hora" type="time" name="hora" value="{{$coleta->hora}}" required/>
+                    <x-label for="descricao" value="Descrição:" />
+                    <x-input readonly id="descricao" type="text" name="descricao" value="{{$qualidade->descricao}}"/>
                 </x-form-control>
             </x-form>
         </form>
@@ -30,15 +30,7 @@
                 Editar
             </x-button>
         </div>
-        @if($qualidade > 0)
-        <a href="{{route('qualidade.view', $qualidade)}}" class="organosoft-btn justify-center">
-            Ver avalicação
-        </a>
-        @else
-        <a href="{{route('qualidade.p.create', $coleta->id)}}" class="organosoft-btn justify-center">
-            Avalicação de qualidade
-        </a>
-        @endif
+        <livewire:deletar-qualidade-coleta :qualidade="$qualidade" :cor="'white'">
     </x-slot>
     <script src="{{asset('js/estado-cidade.js')}}"></script>
 </x-auth>
