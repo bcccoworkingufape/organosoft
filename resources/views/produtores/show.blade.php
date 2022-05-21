@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="mt-2 md:mt-0 w-full md:w-1/4 md:h-full flex items-center justify-center">
-                    <a href="{{route('produtores.contratos.create', $produtor)}}"  class="h-full md:h-4/6 w-fit mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
+                    <a href="{{route('produtores.contratos.index', $produtor)}}"  class="h-full md:h-4/6 w-fit mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
                         <div class="mt-1 flex items-center justify-center w-full">
                             <img src="{{asset('img/doc-primary.svg')}}" alt="doc icon" class="h-4/5">
                         </div>
