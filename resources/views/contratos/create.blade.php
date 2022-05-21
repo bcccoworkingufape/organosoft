@@ -39,10 +39,10 @@
                     <x-label for="status" value="Status:" />
                     <x-select id="status" x-model="status" name="status" required>
                         <option value="" disabled selected>--Selecione o status--</option>
-                        <option @selected(old('status')) value="construcao">Em construção</option>
-                        <option @selected(old('status')) value="execucao">Em execução</option>
-                        <option @selected(old('status')) value="cancelado">Cancelado</option>
-                        <option @selected(old('status')) value="encerrado">Encerrado</option>
+                        <option @selected(old('status')) value="Em construção">Em construção</option>
+                        <option @selected(old('status')) value="Em execução">Em execução</option>
+                        <option @selected(old('status')) value="Cancelado">Cancelado</option>
+                        <option @selected(old('status')) value="Encerrado">Encerrado</option>
                         <option @selected(old('status')) value="outro">Outro</option>
                     </x-select>
                 </x-form-control>
