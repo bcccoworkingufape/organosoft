@@ -21,6 +21,12 @@ class Contrato extends Model
         'fim',
     ];
 
+    protected $casts = [
+        'inicio' => 'date',
+        'fim' => 'date',
+        'valor' => 'float'
+    ];
+
     public function granjas()
     {
         return $this->belongsToMany(Granja::class);
