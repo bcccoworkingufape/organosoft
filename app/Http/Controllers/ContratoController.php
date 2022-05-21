@@ -18,7 +18,7 @@ class ContratoController extends Controller
     public function index(Produtor $produtor)
     {
         $contratos = Contrato::all();
-        return view('produtores.contratos.index', compact('produtor', 'contratos'));
+        return view('contratos.index', compact('produtor', 'contratos'));
     }
 
     /**
