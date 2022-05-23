@@ -27,4 +27,9 @@ class Granja extends Model
     {
         return $this->belongsToMany(Contrato::class);
     }
+
+    public function coletas()
+    {
+        return $this->hasMany(Coleta::class);
+    }
 }

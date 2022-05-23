@@ -46,8 +46,11 @@
             </x-card>
         </div>
         <div class="flex justify-between mt-2">
-            <a href="#" class="organosoft-btn justify-center">
-                Agendar coleta
+            <a href="{{route('coleta.p.create', $granja)}}" class="organosoft-btn justify-center">
+                Nova Coleta
+            </a>
+            <a href="{{route('coleta.show', $granja)}}" class="organosoft-btn justify-center">
+                Ver Coletas
             </a>
             <a href="{{route('granjas.edit', $granja)}}" class="organosoft-btn flex justify-center">
                 <img src="{{asset('img/pencil-white.svg')}}" alt="icon pencil" class="mr-1 w-6">

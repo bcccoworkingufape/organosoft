@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\GranjaController;
 use App\Http\Controllers\ProdutorController;
+use App\Http\Controllers\ColetaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,4 +44,12 @@ Route::middleware([
         'produtores' => 'produtor',
     ])->except('destroy')->shallow();
     Route::get('contratos/{contrato}/documento', [ContratoController::class, 'documento'])->name('contratos.documento');
+
+    Route::get('/coleta/{granja_id}', [ColetaController::class, 'index'])->name('coleta');
+    Route::get('/coletas/{granja_id}/show', [ColetaController::class, 'show'])->name('coleta.show');
+    Route::get('/coleta/{coleta_id}/view', [ColetaController::class, 'view'])->name('coleta.view');
+    Route::get('/coleta/{coleta_id}/edit', [ColetaController::class, 'edit'])->name('coleta.edit');
+    Route::post('/coleta/{coleta_id}/store', [ColetaController::class, 'store'])->name('coleta.store');
+    Route::get('/coleta/{coleta_id}/create', [ColetaController::class, 'pCreate'])->name('coleta.p.create');
+    Route::post('/coleta/create', [ColetaController::class, 'create'])->name('coleta.create');
 });
