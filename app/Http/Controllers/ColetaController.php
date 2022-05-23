@@ -14,14 +14,14 @@ class ColetaController extends Controller
     {
         $granja = Granja::find($granja_id);
         $coletas = Coleta::where('id_granja', $granja_id);
-        return view('Coletas.index', ['coletas' => $coletas]);
+        return view('coletas.index', ['coletas' => $coletas]);
     }
 
     public function show($granja_id)
     {
         $granja = Granja::find($granja_id);
         $coletas = Coleta::where('id_granja', $granja_id)->get();
-        return view('Coletas.show', ['coletas' => $coletas]);
+        return view('coletas.show', ['coletas' => $coletas]);
     }
 
     public function view($coleta_id)
@@ -33,13 +33,13 @@ class ColetaController extends Controller
         }else{
             $qualidade = 0;
         }
-        return view('Coletas.view', ['coleta' => $coleta, 'qualidade' => $qualidade]);
+        return view('coletas.view', ['coleta' => $coleta, 'qualidade' => $qualidade]);
     }
 
     public function edit($coleta_id)
     {
         $coleta = Coleta::find($coleta_id);
-        return view('Coletas.edit', ['coleta' => $coleta]);
+        return view('coletas.edit', ['coleta' => $coleta]);
     }
 
     public function store(Request $request, $coleta_id)
@@ -48,24 +48,24 @@ class ColetaController extends Controller
             'hora' => 'required',
             'data' => 'required',
         ]);
-        
+
         $dados = $request->all();
         //dd($dados['data']);
         $coleta = Coleta::find($coleta_id);
-        
+
         $coleta->status = 'status 1';
         $coleta->hora = $dados['hora'];
         $coleta->data = $dados['data'];
         $coleta->save();
 
         return redirect()->back();
-        return view('Coletas.edit', ['coleta' => $coleta]);
+        return view('coletas.edit', ['coleta' => $coleta]);
     }
-    
+
     public function pCreate($granja)
     {
 
-        return view('Coletas.create', ['granja' => $granja]);
+        return view('coletas.create', ['granja' => $granja]);
     }
 
     public function create(Request $request)
