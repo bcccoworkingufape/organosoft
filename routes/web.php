@@ -4,6 +4,7 @@ use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\GranjaController;
 use App\Http\Controllers\ProdutorController;
 use App\Http\Controllers\ColetaController;
+use App\Http\Controllers\QualidadeColetaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,4 +53,11 @@ Route::middleware([
     Route::post('/coleta/{coleta_id}/store', [ColetaController::class, 'store'])->name('coleta.store');
     Route::get('/coleta/{coleta_id}/create', [ColetaController::class, 'pCreate'])->name('coleta.p.create');
     Route::post('/coleta/create', [ColetaController::class, 'create'])->name('coleta.create');
+
+    Route::get('/qualidade/{coleta_id}/view', [QualidadeColetaController::class, 'view'])->name('qualidade.view');
+    Route::get('/qualidade/{coleta_id}/edit', [QualidadeColetaController::class, 'edit'])->name('qualidade.edit');
+    Route::post('/qualidade/{coleta_id}/store', [QualidadeColetaController::class, 'store'])->name('qualidade.store');
+    Route::get('/qualidade/{coleta_id}/create', [QualidadeColetaController::class, 'pCreate'])->name('qualidade.p.create');
+    Route::post('/qualidade/create', [QualidadeColetaController::class, 'create'])->name('qualidade.create');
+
 });

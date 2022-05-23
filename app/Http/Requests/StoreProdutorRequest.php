@@ -25,8 +25,8 @@ class StoreProdutorRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'string', 'min:5', 'max:255'],
-            'cnpj' => ['required', 'string', 'cnpj', 'unique:produtores'],
-            'telefone' => ['required', 'string', 'celular_com_ddd'],
+            'cnpj' => ['required', 'string', 'unique:produtores'],
+            'telefone' => ['required', 'string'],
             'email' => ['required', 'string', 'email'],
             'cep' => ['required', 'string','min:9','max:9'],
             'bairro' => ['required', 'string', 'max:255'],
