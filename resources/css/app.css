@@ -291,4 +291,35 @@
     background-color: theme('colors.neutral.200');
     transition: background-color 150ms ease-in;
   }
+
+  .organosoft-reports-grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+  }
+
+  .organosoft-reports-grid__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: theme('colors.primary');
+    flex: 0 0 8em;
+    height: 8em;
+    padding: 0 2em;
+    color: theme('colors.white');
+    font-weight: 600;
+  }
+
+  .organosoft-reports-grid__item .title {
+    text-align: center;
+  }
+
+  .organosoft-reports-grid__item .icon {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em;
+  }
 }

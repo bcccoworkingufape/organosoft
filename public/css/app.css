@@ -1220,6 +1220,33 @@ body {
     background-color: #e5e7eb;
     transition: background-color 150ms ease-in;
   }
+.organosoft-reports-grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+  }
+.organosoft-reports-grid__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3c924e;
+    flex: 0 0 8em;
+    height: 8em;
+    padding: 0 2em;
+    color: #fff;
+    font-weight: 600;
+  }
+.organosoft-reports-grid__item .title {
+    text-align: center;
+  }
+.organosoft-reports-grid__item .icon {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em;
+  }
 .fixed {
   position: fixed;
 }
@@ -1891,11 +1918,11 @@ body {
 .font-semibold {
   font-weight: 600;
 }
-.font-extrabold {
-  font-weight: 800;
-}
 .font-bold {
   font-weight: 700;
+}
+.font-extrabold {
+  font-weight: 800;
 }
 .uppercase {
   text-transform: uppercase;
