@@ -1,51 +1,45 @@
 <x-auth>
     <x-slot name="no_bg_main">
-        <div class="flex flex-wrap gap-2">
-            <x-card class="w-full flex">
-                <div class="w-2/3">
-                    <h1 class="text-primary text-3xl font-bold">{{$granja->nome}}</h1>
-                    <p class="text-sm text-gray-500">Quantidade de aves {{$granja->quant_aves}}</p>
-                    <p class="text-sm text-gray-500">Cliente desde {{$granja->created_at->year}}</p>
+        <div class="flex flex-wrap w-full">
+            <x-card class="flex flex-wrap w-full">
+                <div class="mt-2 md:mt-0 w-full md:w-1/4 flex items-center justify-center">
+                    <img src="{{ asset('img/logo-default.png') }}" alt="logo img" class="w-40 md:w-3/4">
                 </div>
-                <div class="w-1/4">CONTRATO</div>
-            </x-card>
-            <x-card class=" w-full grid">
-                <h1 class="mt-3 mb-3 text-primary text-2xl font-bold w-full">Endereço</h1>
-                <div class="flex w-full">
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium ml-4">CEP: {{$granja->endereco->cep}}</p>
-                    </div>
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium">Bairro: {{$granja->endereco->bairro}}</p>
-                    </div>
-                </div>
-                <div class="flex w-full">
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium ml-4">Rua: {{$granja->endereco->rua}}</p>
-                    </div>
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium">Número: {{$granja->endereco->numero}}</p>
-                    </div>
-                </div>
-                <div class="flex w-full">
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium ml-4">Estado: {{$granja->endereco->estado}}</p>
-                    </div>
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium">Cidade: {{$granja->endereco->cidade}}</p>
+                <div class="mt-2 md:mt-0 w-full md:w-1/2 flex justify-center">
+                    <div class="w-fit">
+                        <h1 class="text-primary text-3xl font-bold">{{$granja->nome}}</h1>
+                        <p class="text-sm text-gray-500">Cliente desde {{$granja->created_at->year}}</p>
+                        <div class="flex mt-3">
+                            <img src="{{asset('img/location-primary.svg')}}" alt="mail icon" class="w-4 mr-4">
+                            <div>
+                                <p class="text-gray-500 font-medium">{{$granja->endereco->rua}}, {{$granja->endereco->numero}}</p>
+                                <p class="text-gray-500 font-medium">{{$granja->endereco->bairro}}, {{$granja->endereco->cidade}}/{{$granja->endereco->estado}}</p>
+                                <p class="text-gray-500 font-medium">CEP: {{$granja->endereco->cep}}</p>
+                                @if ($granja->endereco->complemento)
+                                    <p class="text-gray-500 font-medium">Complemento: {{$granja->endereco->complemento}}</p>
+                                @endif
+                                @if ($granja->endereco->ponto_referencia)
+                                    <p class="text-gray-500 font-medium">Ponto de referência: {{$granja->endereco->ponto_referencia}}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="flex mt-3">
+                            <div class="w-6 mr-2"></div>
+                            <p class="text-gray-500 font-medium">Quantidade de aves: {{$granja->quant_aves}}</p>
+                        </div>
                     </div>
                 </div>
-                <div class="flex w-full">
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium ml-4">Complemento: {{$granja->endereco->complemento}}</p>
-                    </div>
-                    <div class="w-1/2">
-                        <p class="text-gray-500 font-medium">Ponto de Referência: {{$granja->endereco->ponto_referencia}}</p>
-                    </div>
+                <div class="mt-2 md:mt-0 w-full md:w-1/4 flex items-center justify-center">
+                    <a href="{{route('granjas.contratos.index', $granja)}}"  class="h-full w-fit mt-2 flex flex-wrap items-center justify-center border-primary border rounded-3xl">
+                        <div class="mt-1 flex items-center justify-center w-full">
+                            <img src="{{asset('img/doc-primary.svg')}}" alt="doc icon" class="h-4/5">
+                        </div>
+                        <h1 class="text-primary font-bold text-lg text-center break-normal mx-2">Visualizar<br>contratos</h1>
+                    </a>
                 </div>
             </x-card>
         </div>
-        <div class="flex justify-between mt-2">
+        <div class="flex justify-around mt-2">
             <a href="{{route('coleta.p.create', $granja)}}" class="organosoft-btn justify-center">
                 Nova Coleta
             </a>
@@ -60,3 +54,6 @@
         </div>
     </x-slot>
 </x-auth>
+
+
+

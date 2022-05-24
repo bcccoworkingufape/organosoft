@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -28,5 +29,10 @@ class Produtor extends Model
     public function granjas()
     {
         return $this->hasMany(Granja::class);
+    }
+
+    public function contratos()
+    {
+        return $this->hasMany(Contrato::class);
     }
 }

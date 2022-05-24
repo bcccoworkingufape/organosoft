@@ -1,6 +1,10 @@
 <x-auth>
     <x-slot name="title">
-        Contratos do produtor {{$produtor->nome}}
+        @if($view == 'produtor')
+            Contratos do produtor {{$produtor->nome}}
+        @else
+            Contratos da granja {{$granja->nome}}
+        @endif
     </x-slot>
     <x-slot name="bg_main">
         <x-validation-errors class="mb-4" />

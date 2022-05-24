@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContratoRequest;
 use App\Http\Requests\UpdateContratoRequest;
 use App\Models\Contrato;
+use App\Models\Granja;
 use App\Models\Produtor;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,8 +18,17 @@ class ContratoController extends Controller
      */
     public function index(Produtor $produtor)
     {
-        $contratos = Contrato::all();
-        return view('contratos.index', compact('produtor', 'contratos'));
+        $contratos = $produtor->contratos;
+        $view = 'produtor';
+        return view('contratos.index', compact('produtor', 'contratos', 'view'));
+    }
+
+    public function indexGranja(Granja $granja)
+    {
+        $contratos = $granja->contratos;
+        $view = 'granja';
+        $produtor = $granja->produtor;
+        return view('contratos.index', compact('granja', 'produtor', 'contratos', 'view'));
     }
 
     /**
