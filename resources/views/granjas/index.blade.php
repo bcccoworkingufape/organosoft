@@ -1,4 +1,7 @@
 <x-auth>
+    <x-slot name="title">
+        Granjas
+    </x-slot>
     <x-slot name="bg_main">
         <x-validation-errors class="mb-4" />
 
