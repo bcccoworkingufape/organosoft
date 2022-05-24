@@ -10,21 +10,29 @@
             </div>
         @endif
         <div class="organosoft-list">
-            @foreach ($categoriaVeiculos as $categoriaVeiculo)
-                <div class="organosoft-list__item">
-                    <div class="w-5/6 flex flex-wrap">
-                        <a class="flex w-full text-primary text-3xl font-bold">{{$categoriaVeiculo->descricao}}</a>
-                        <p class="text-sm text-gray-500">&nbsp;</p>
+            @if(count($categoriaVeiculos) > 0)
+                @foreach ($categoriaVeiculos as $categoriaVeiculo)
+                    <div class="organosoft-list__item">
+                        <div class="w-5/6 flex flex-wrap">
+                            <a class="flex w-full text-primary text-3xl font-bold">{{$categoriaVeiculo->descricao}}</a>
+                            <p class="text-sm text-gray-500">&nbsp;</p>
+                        </div>
+                        <div class="flex place-items-center">
+                            <a class="mr-2 w-6" href="{{route('categoriaVeiculos.edit', $categoriaVeiculo)}}" title="Editar categoria de veículos">
+                                <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
+                            </a>
+                            <livewire:deletar-categoria-veiculo :categoriaVeiculo="$categoriaVeiculo" :tipo="'icon'">
+                        </div>
                     </div>
-                    <div class="flex place-items-center">
-                        <a class="mr-2 w-6" href="{{route('categoriaVeiculos.edit', $categoriaVeiculo)}}" title="Editar categoria de veículos">
-                            <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
-                        </a>
-                        <livewire:deletar-categoria-veiculo :categoriaVeiculo="$categoriaVeiculo" :tipo="'icon'">
-                    </div>
+                    <hr class="mb-2">
+                @endforeach
+            @else
+              <div class="organosoft-list__item  justify-center">
+                <div class="organosoft-list__item__title">
+                  <p>Nenhuma categoria de veículo cadastrada</p>
                 </div>
-                <hr class="mb-2">
-            @endforeach
+              </div>
+            @endif
         </div>
     </x-slot>
     <x-slot name="side_content">

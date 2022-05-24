@@ -10,26 +10,34 @@
             </div>
         @endif
         <div class="organosoft-list">
-            @foreach ($maquinas as $maquina)
-                <div class="organosoft-list__item">
-                    <div class="w-5/6 flex flex-wrap">
-                        <a href="{{route('maquinas.show', $maquina)}}" class="flex w-full text-primary text-3xl font-bold">{{$maquina->marca}}</a>
-                        <p class="text-sm text-gray-500">{{$maquina->placa}}</p>
+            @if(count($maquinas) > 0)
+                @foreach ($maquinas as $maquina)
+                    <div class="organosoft-list__item">
+                        <div class="w-5/6 flex flex-wrap">
+                            <a href="{{route('maquinas.show', $maquina)}}" class="flex w-full text-primary text-3xl font-bold">{{$maquina->marca}}</a>
+                            <p class="text-sm text-gray-500">{{$maquina->placa}}</p>
+                        </div>
+                        <div class="flex place-items-center">
+                            <a class="mr-2 w-6" href="{{route('maquinas.edit', $maquina)}}" title="Editar máquina">
+                                <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
+                            </a>
+                            <livewire:deletar-maquina :maquina="$maquina" :tipo="'icon'">
+                        </div>
                     </div>
-                    <div class="flex place-items-center">
-                        <a class="mr-2 w-6" href="{{route('maquinas.edit', $maquina)}}" title="Editar máquina">
-                            <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
-                        </a>
-                        <livewire:deletar-maquina :maquina="$maquina" :tipo="'icon'">
-                    </div>
+                    <hr class="mb-2">
+                @endforeach
+            @else
+              <div class="organosoft-list__item  justify-center">
+                <div class="organosoft-list__item__title">
+                  <p>Nenhuma máquina cadastrada</p>
                 </div>
-                <hr class="mb-2">
-            @endforeach
+              </div>
+            @endif
         </div>
     </x-slot>
     <x-slot name="side_content">
         <x-link href="{{route('maquinas.create')}}">
-            <img src="{{asset('img/plus-white.svg')}}" alt="icon plus"> 
+            <img src="{{asset('img/plus-white.svg')}}" alt="icon plus">
             Adicionar máquinas
         </x-link>
         <x-card class="h-32"></x-card>
