@@ -43,7 +43,7 @@
   }
 
   .organosoft-main__body > section {
-    flex: 1 1 100;
+    flex: 1 1 100%;
     padding: 1.5em;
   }
 
