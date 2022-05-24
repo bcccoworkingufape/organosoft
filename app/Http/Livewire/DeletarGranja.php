@@ -28,6 +28,6 @@ class DeletarGranja extends Component
     {
         $produtor = $this->granja->produtor;
         $this->granja->delete();
-        return redirect()->route('produtores.granjas.index', $produtor)->with('status', 'Granja deletada com sucesso!');
+        return redirect()->route('granjas.index', $produtor)->with('status', 'Granja deletada com sucesso!');
     }
 }
