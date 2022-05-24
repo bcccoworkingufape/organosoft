@@ -29,13 +29,13 @@
                         :name="'Infraestrutura'"
                         :links="[
                             [
-                                'route' => route('veiculos.index'),
-                                'name' => 'Veículos',
-                                'active' => request()->routeIs('veiculos.*')
-                            ], [
                                 'route' => route('categoriaVeiculos.index'),
                                 'name' => 'Categoria de Veículos',
                                 'active' => request()->routeIs('categoriaVeiculos.*')
+                            ], [
+                                'route' => route('veiculos.index'),
+                                'name' => 'Veículos',
+                                'active' => request()->routeIs('veiculos.*')
                             ], [
                                 'route' => route('equipamentos.index'),
                                 'name' => 'Equipamentos',
