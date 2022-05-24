@@ -10,7 +10,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        @foreach ($contratos as $contrato)
+        @forelse ($contratos as $contrato)
             <div class="flex flex-wrap w-full mb-4">
                 <div class="w-5/6 flex flex-wrap">
                     <a href="{{route('contratos.show', $contrato)}}" class="w-full items-end flex flex-wrap">
@@ -28,7 +28,13 @@
                 </div>
             </div>
             <hr class="mb-2">
-        @endforeach
+        @empty
+            <div class="organosoft-list__item  justify-center flex flex-wrap w-full">
+                <div class="organosoft-list__item__title">
+                    <p>Nenhum contrato cadastrado</p>
+                </div>
+            </div>
+        @endforelse
     </x-slot>
     <x-slot name="side_content">
         <a href="{{route('produtores.contratos.create', $produtor)}}" class="organosoft-btn flex justify-center">

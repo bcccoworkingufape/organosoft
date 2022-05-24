@@ -10,7 +10,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        @foreach ($granjas as $granja)
+        @forelse ($granjas as $granja)
             <div class="flex flex-wrap w-full mb-4">
                 <div class="w-5/6 flex flex-wrap">
                     <a href="{{route('granjas.show', $granja)}}" class="flex w-full text-primary text-3xl font-bold">{{$granja->nome}}</a>
@@ -24,7 +24,13 @@
                 </div>
             </div>
             <hr class="mb-2">
-        @endforeach
+        @empty
+            <div class="organosoft-list__item  justify-center flex flex-wrap w-full">
+                <div class="organosoft-list__item__title">
+                    <p>Nenhuma granja cadastrada</p>
+                </div>
+            </div>
+        @endforelse
     </x-slot>
     <x-slot name="side_content">
         <x-card class="h-32"></x-card>

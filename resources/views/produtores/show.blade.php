@@ -60,7 +60,7 @@
         </div>
         @if ($granjas)
             <div class="flex flex-wrap mt-2">
-                <x-card class="flex flex-wrap justify-center">
+                <x-card class="flex flex-wrap justify-center w-full">
                     <h2 class="text-primary font-bold text-3xl mb-4">Granjas do produtor</h2>
                     <x-validation-errors class="mb-4" />
                     @if (session('status'))
@@ -68,7 +68,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @foreach ($granjas as $granja)
+                    @forelse ($granjas as $granja)
                         <div class="flex flex-wrap w-full mb-4">
                             <div class="w-5/6 flex flex-wrap">
                                 <div class="w-full">
@@ -84,7 +84,13 @@
                             </div>
                         </div>
                         <hr class="mb-2 w-full">
-                    @endforeach
+                    @empty
+                        <div class="organosoft-list__item  justify-center flex flex-wrap w-full">
+                            <div class="organosoft-list__item__title">
+                                <p>Nenhuma granja cadastrada</p>
+                            </div>
+                        </div>
+                    @endforelse
                 </x-card>
             </div>
         @endif
