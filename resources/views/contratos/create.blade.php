@@ -51,8 +51,8 @@
                     <x-input id="outro" type="text" name="outro" value="{{old('outro')}}"/>
                 </x-form-control>
                 <x-form-control class="w-full">
-                    <x-label for="observacao" value="Observação:" />
-                    <x-input id="observacao" type="text" name="observacao" value="{{old('observacao')}}"/>
+                    <x-label for="observacao" value="Observações:" />
+                    <textarea id="observacao" type="text" name="observacao">{{old('observacao')}}</textarea>
                 </x-form-control>
             </x-form>
         </form>
