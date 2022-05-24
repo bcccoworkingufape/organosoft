@@ -2,8 +2,8 @@
 
 @php
 $classes = ($active ?? false)
-            ? 'font-extrabold flex items-center border-b-2 border-solid border-b-white'
-            : 'font-bold flex items-center';
+            ? 'organosoft-menu font-extrabold flex items-center border-b-2 border-solid border-b-white'
+            : 'organosoft-menu font-bold flex items-center';
 @endphp
 
 <a {{ $attributes->merge(['class' => $classes]) }}>

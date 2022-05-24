@@ -5,6 +5,11 @@ use App\Http\Controllers\GranjaController;
 use App\Http\Controllers\ProdutorController;
 use App\Http\Controllers\ColetaController;
 use App\Http\Controllers\QualidadeColetaController;
+use App\Http\Controllers\CategoriaVeiculoController;
+use App\Http\Controllers\VeiculoController;
+use App\Http\Controllers\EquipamentoController;
+use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\EspacosFabricaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,4 +65,24 @@ Route::middleware([
     Route::get('/qualidade/{coleta_id}/create', [QualidadeColetaController::class, 'pCreate'])->name('qualidade.p.create');
     Route::post('/qualidade/create', [QualidadeColetaController::class, 'create'])->name('qualidade.create');
 
+
+    Route::resource('veiculos', VeiculoController::class)->parameters([
+        'veiculos' => 'veiculo',
+    ]);
+
+    Route::resource('categoriaVeiculos', CategoriaVeiculoController::class)->parameters([
+        'categoriasVeiculos' => 'categoriaVeiculo',
+    ]);
+
+    Route::resource('equipamentos', EquipamentoController::class)->parameters([
+        'equipamentos' => 'equipamento',
+    ]);
+
+    Route::resource('maquinas', MaquinaController::class)->parameters([
+        'maquinas' => 'maquina',
+    ]);
+
+    Route::resource('espacosFabrica', EspacosFabricaController::class)->parameters([
+        'espacosFabrica' => 'espacosFabrica'
+    ]);
 });

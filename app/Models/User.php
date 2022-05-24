@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'fabrica_id',
     ];
 
     /**
@@ -63,4 +64,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Produtor::class);
     }
+    public function fabrica()
+    {
+        return $this->belongsTo(Fabrica::class);
+    }
+
+    public function maquinas()
+    {
+        return $this->hasMany(Maquina::class);
+    }
+
 }

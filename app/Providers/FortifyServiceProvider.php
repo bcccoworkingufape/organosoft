@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use App\Models\Fabrica;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -44,6 +45,11 @@ class FortifyServiceProvider extends ServiceProvider
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
+
+        Fortify::registerView(function () {
+            $fabricas = Fabrica::all();
+            return view('auth.register', ['fabricas' => $fabricas]);
         });
     }
 }
