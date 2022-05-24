@@ -66,23 +66,13 @@ Route::middleware([
     Route::post('/qualidade/create', [QualidadeColetaController::class, 'create'])->name('qualidade.create');
 
 
-    Route::resource('veiculos', VeiculoController::class)->parameters([
-        'veiculos' => 'veiculo',
-    ]);
+    Route::resource('veiculos', VeiculoController::class);
 
-    Route::resource('categoriaVeiculos', CategoriaVeiculoController::class)->parameters([
-        'categoriasVeiculos' => 'categoriaVeiculo',
-    ]);
+    Route::resource('categoriaVeiculos', CategoriaVeiculoController::class);
 
-    Route::resource('equipamentos', EquipamentoController::class)->parameters([
-        'equipamentos' => 'equipamento',
-    ]);
+    Route::resource('equipamentos', EquipamentoController::class);
 
-    Route::resource('maquinas', MaquinaController::class)->parameters([
-        'maquinas' => 'maquina',
-    ]);
+    Route::resource('maquinas', MaquinaController::class);
 
-    Route::resource('espacosFabrica', EspacosFabricaController::class)->parameters([
-        'espacosFabrica' => 'espacosFabrica'
-    ]);
+    Route::resource('espacosFabrica', EspacosFabricaController::class);
 });
