@@ -4,6 +4,7 @@ use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\EquipamentoController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\EspacosFabricaController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
