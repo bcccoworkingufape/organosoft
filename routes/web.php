@@ -30,9 +30,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/relatorios', function () {
-        return view('relatorios.index');
-    })->name('relatorios');
+    Route::get('/relatoriosInfraestrutura', function () {
+        return view('relatoriosInfraestrutura.index');
+    })->name('relatoriosInfraestrutura');
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');
@@ -48,7 +48,7 @@ Route::middleware([
     Route::resource('equipamentos', EquipamentoController::class)->parameters([
         'equipamentos' => 'equipamento',
     ]);
-    
+
     Route::resource('maquinas', MaquinaController::class)->parameters([
         'maquinas' => 'maquina',
     ]);

@@ -16,14 +16,14 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <livewire:dropdown-menu 
+                    <livewire:dropdown-menu
                         :name="'Infraestrutura'"
                         :links="[
-                            [ 
+                            [
                                 'route' => route('veiculos.index'),
                                 'name' => 'Veículos',
                                 'active' => request()->routeIs('veiculos.*')
-                            ], [ 
+                            ], [
                                 'route' => route('categoriaVeiculos.index'),
                                 'name' => 'Categoria de Veículos',
                                 'active' => request()->routeIs('categoriaVeiculos.*')
@@ -42,9 +42,21 @@
                             ],
                         ]">
                     </livewire:dropdown-menu>
-                    <x-nav-link href="{{ route('relatorios') }}" :active="request()->routeIs('relatorios')">
-                        Relatórios
-                    </x-nav-link>
+                    <livewire:dropdown-menu
+                        :name="'Relatórios'"
+                        :links="[
+                            [
+                                'route' => route('relatoriosInfraestrutura'),
+                                'name' => 'Infraestrutura',
+                                'active' => request()->routeIs('relatoriosInfraestrutura')
+                            ],
+                            [
+                                'route' => route('relatoriosInfraestrutura'),
+                                'name' => 'Outro Módulo',
+                                'active' => request()->routeIs('relatoriosInfraestrutura')
+                            ],
+                        ]">
+                    </livewire:dropdown-menu>
                 </div>
             </div>
 
