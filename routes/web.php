@@ -4,6 +4,7 @@ use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\EquipamentoController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\EspacosFabricaController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/relatorios', function () {
+        return view('relatorios.index');
+    })->name('relatorios');
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');

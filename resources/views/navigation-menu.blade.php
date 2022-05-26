@@ -42,6 +42,9 @@
                             ],
                         ]">
                     </livewire:dropdown-menu>
+                    <x-nav-link href="{{ route('relatorios') }}" :active="request()->routeIs('relatorios')">
+                        Relatórios
+                    </x-nav-link>
                 </div>
             </div>
 
