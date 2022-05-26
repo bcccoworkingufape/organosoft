@@ -16,17 +16,26 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('residuos') }}" :active="request()->routeIs('residuos')">
+                        Resíduos
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('produtores.index') }}" :active="request()->routeIs('produtores.*')">
+                        Produtores
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('granjas.index') }}" :active="request()->routeIs('granjas.index')">
+                        Granjas
+                    </x-nav-link>
                     <livewire:dropdown-menu
                         :name="'Infraestrutura'"
                         :links="[
                             [
-                                'route' => route('veiculos.index'),
-                                'name' => 'Veículos',
-                                'active' => request()->routeIs('veiculos.*')
-                            ], [
                                 'route' => route('categoriaVeiculos.index'),
                                 'name' => 'Categoria de Veículos',
                                 'active' => request()->routeIs('categoriaVeiculos.*')
+                            ], [
+                                'route' => route('veiculos.index'),
+                                'name' => 'Veículos',
+                                'active' => request()->routeIs('veiculos.*')
                             ], [
                                 'route' => route('equipamentos.index'),
                                 'name' => 'Equipamentos',
