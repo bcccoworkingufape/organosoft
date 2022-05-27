@@ -51,6 +51,21 @@
                             ],
                         ]">
                     </livewire:dropdown-menu>
+                    <livewire:dropdown-menu
+                        :name="'Relatórios'"
+                        :links="[
+                            [
+                                'route' => route('relatoriosInfraestrutura'),
+                                'name' => 'Infraestrutura',
+                                'active' => request()->routeIs('relatoriosInfraestrutura')
+                            ],
+                            [
+                                'route' => route('relatoriosInfraestrutura'),
+                                'name' => 'Outro Módulo',
+                                'active' => request()->routeIs('relatoriosInfraestrutura')
+                            ],
+                        ]">
+                    </livewire:dropdown-menu>
                 </div>
             </div>
 
