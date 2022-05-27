@@ -10,6 +10,7 @@ use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\EquipamentoController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\EspacosFabricaController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/relatoriosInfraestrutura', function () {
+        return view('relatoriosInfraestrutura.index');
+    })->name('relatoriosInfraestrutura');
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');
@@ -74,5 +78,23 @@ Route::middleware([
 
     Route::resource('maquinas', MaquinaController::class);
 
-    Route::resource('espacosFabrica', EspacosFabricaController::class);
+    Route::resource('veiculos', VeiculoController::class)->parameters([
+        'veiculos' => 'veiculo',
+    ]);
+
+    Route::resource('categoriaVeiculos', CategoriaVeiculoController::class)->parameters([
+        'categoriasVeiculos' => 'categoriaVeiculo',
+    ]);
+
+    Route::resource('equipamentos', EquipamentoController::class)->parameters([
+        'equipamentos' => 'equipamento',
+    ]);
+
+    Route::resource('maquinas', MaquinaController::class)->parameters([
+        'maquinas' => 'maquina',
+    ]);
+
+    Route::resource('espacosFabrica', EspacosFabricaController::class)->parameters([
+        'espacosFabrica' => 'espacosFabrica'
+    ]);
 });

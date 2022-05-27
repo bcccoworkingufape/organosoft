@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Fabrica;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,10 @@ class FabricaSeeder extends Seeder
      */
     public function run()
     {
-        Fabrica::factory()->count(10)->create();
+        DB::table('fabricas')->insert([
+            'id' => '1',
+            'nome' => 'Fábrica 1',
+            'descricao' => 'Descrição da Fábrica 1'
+        ]);
     }
 }
