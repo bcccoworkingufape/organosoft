@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fabrica extends Model
 {
+    use HasFactory;
+
     protected $fillable = [ 'nome', 'descricao' ];
 
     public function categoriaVeiculos()
@@ -43,5 +45,5 @@ class Fabrica extends Model
     {
         return $this->hasMany(TipoItemEspacoFabrica::class);
     }
-    
+
 }

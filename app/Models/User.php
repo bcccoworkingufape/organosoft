@@ -60,11 +60,15 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function produtores()
+    {
+        return $this->hasMany(Produtor::class);
+    }
     public function fabrica()
     {
         return $this->belongsTo(Fabrica::class);
     }
-    
+
     public function maquinas()
     {
         return $this->hasMany(Maquina::class);

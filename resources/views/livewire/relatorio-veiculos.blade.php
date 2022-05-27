@@ -13,26 +13,6 @@
         <x-slot name="content">
             <x-form wire:submit.prevent="exportar">
                 <x-form-control class="w-full">
-                    <x-label for="marca" value="Marca:" />
-                    <x-input id="marca" type="text" name="marca" wire:model="marca"/>
-                </x-form-control>
-                <x-form-control class="w-full">
-                    <x-label for="modelo" value="Modelo:" />
-                    <x-input id="modelo" type="text" name="modelo" wire:model="modelo"/>
-                </x-form-control>
-                <x-form-control class="w-full">
-                    <x-label for="chassi" value="Chassi:" />
-                    <x-input id="chassi" type="text" name="chassi" wire:model="chassi"/>
-                </x-form-control>
-                <x-form-control class="w-full">
-                    <x-label for="placa" value="Placa:" />
-                    <x-input id="placa" type="text" name="placa" wire:model="placa"/>
-                </x-form-control>
-                <x-form-control class="w-full">
-                    <x-label for="ano" value="Ano:" />
-                    <x-input id="ano" type="text" name="ano" wire:model="ano"/>
-                </x-form-control>
-                <x-form-control class="w-full">
                     <x-label for="categoriaVeiculo_id" value="Categoria do Veículo:"></x-label>
                     <x-select name="categorias_veiculos_id" id="categorias_veiculos_id" wire:model="categoriaVeiculo">
                         <option value="" selected>Todas</option>

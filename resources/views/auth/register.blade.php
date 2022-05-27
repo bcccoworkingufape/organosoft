@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-login-card>
         <x-slot name="logo">
-            <a name="logo" href="a" class="text-2xl">
+    <a name="logo" href="{{route('welcome')}}" class="text-2xl">
                 <!-- <img src="#" alt="Organosoft"> -->
                 OrganoSoft
             </a>

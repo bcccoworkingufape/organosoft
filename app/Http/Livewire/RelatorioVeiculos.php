@@ -16,13 +16,8 @@ class RelatorioVeiculos extends Component
 
     // Lista de categorias
     public $categorias;
-    
+
     // Form inputs
-    public $marca;
-    public $modelo;
-    public $chassi;
-    public $placa;
-    public $ano;
     public $categoriaVeiculo;
 
     public function mount() {
@@ -48,7 +43,7 @@ class RelatorioVeiculos extends Component
                 'categoria_veiculos',
                 'veiculos.categorias_veiculos_id', '=', 'categoria_veiculos.id')
             ->select(
-                'veiculos.id', 
+                'veiculos.id',
                 'veiculos.marca',
                 'veiculos.modelo',
                 'veiculos.placa',
@@ -56,22 +51,7 @@ class RelatorioVeiculos extends Component
                 'veiculos.ano',
                 'categoria_veiculos.descricao',
                 'veiculos.created_at');
-                
-        if ($this->marca != null) {
-            $veiculos->where('marca', 'like', '%'.$this->marca.'%');
-        }
-        if ($this->modelo != null) {
-            $veiculos->where('modelo', 'like', '%'.$this->modelo.'%');
-        }
-        if ($this->chassi != null) {
-            $veiculos->where('chassi', 'like', '%'.$this->chassi.'%');
-        }
-        if ($this->placa != null) {
-            $veiculos->where('placa', 'like', '%'.$this->placa.'%');
-        }
-        if ($this->ano != null) {
-            $veiculos->where('ano', $this->ano);
-        }
+
         if ($this->categoriaVeiculo != null) {
             $veiculos->where('categorias_veiculos_id', $this->categoriaVeiculo);
         }
@@ -88,9 +68,9 @@ class RelatorioVeiculos extends Component
             'columns' => [ 'ID', 'Marca', 'Modelo', 'Placa', 'Chassi', 'Ano', 'Categoria', 'Data da criação' ],
             'data' => $veiculos,
         ];
-          
+
         $pdf = PDF::loadView('pdf-template', $data)->output();
-    
-        return response()->streamDownload( fn () => print($pdf), "teste.pdf");
+
+        return response()->streamDownload( fn () => print($pdf), "relatório de veículos.pdf");
     }
 }
