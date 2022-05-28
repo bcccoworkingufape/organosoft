@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->date("data_compra");
-            $table->unsignedBigInteger('fabricas_id');
-            $table->foreign('fabricas_id')->references('id')->on('fabricas');
+            $table->unsignedBigInteger('fabrica_id');
+            $table->foreign('fabrica_id')->references('id')->on('fabricas');
             $table->timestamps();
         });
     }

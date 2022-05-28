@@ -22,19 +22,19 @@ class TipoItemEspacoFabricaSeeder extends Seeder
             'id' => '1',
             'nome' => 'Produtos',
             'descricao' => 'Produtos',
-            'fabricas_id' => 1
+            'fabrica_id' => 1
         ]);
         DB::table('tipo_item_espaco_fabrica')->insert([
             'id' => '2',
             'nome' => 'Insumos',
             'descricao' => 'Insumos',
-            'fabricas_id' => 1
+            'fabrica_id' => 1
         ]);
         DB::table('tipo_item_espaco_fabrica')->insert([
             'id' => '3',
             'nome' => 'Resíduos',
             'descricao' => 'Resíduos',
-            'fabricas_id' => 1
+            'fabrica_id' => 1
         ]);
     }
 }
