@@ -20,7 +20,7 @@
                             @elseif($espacoFabrica->tipoItemEspacoFabrica()->first()->nome == "Insumos")
                               <img src="{{asset('img/insumos.svg')}}" alt="{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}">
                             @else
-                              <img src="{{asset('img/produtos.svg')}}" alt="{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}">
+                              <img src="{{asset('img/products.svg')}}" alt="{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}">
                             @endif
                         </div>
                       </figure>

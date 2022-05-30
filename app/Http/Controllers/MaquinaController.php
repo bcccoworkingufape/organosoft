@@ -30,15 +30,15 @@ class MaquinaController extends Controller
 
     public function create()
     {
-       
+
         $fabrica = Fabrica::where('id', auth()->user()->fabrica_id)->first();
-        $equipamentos = Equipamento::where('fabricas_id', auth()->user()->fabrica_id)->get();
+        $equipamentos = Equipamento::where('fabrica_id', auth()->user()->fabrica_id)->get();
         return view('maquina.create', compact('equipamentos', 'fabrica'));
     }
 
     public function store(StoreMaquinaRequest $request)
     {
-        
+
         $maquina = new Maquina($request->validated());
         $maquina->save();
         return redirect()->route('maquinas.create')->withStatus("Máquina salva com sucesso!");
@@ -47,7 +47,7 @@ class MaquinaController extends Controller
     public function edit(Maquina $maquina)
     {
         $fabrica = Fabrica::where('id', auth()->user()->fabrica_id)->first();
-        $equipamentos = Equipamento::where('fabricas_id', auth()->user()->fabrica_id)->get();
+        $equipamentos = Equipamento::where('fabrica_id', auth()->user()->fabrica_id)->get();
         return view('maquina.edit', compact('maquina', 'equipamentos', 'fabrica'));
     }
 
@@ -70,7 +70,7 @@ class MaquinaController extends Controller
     public function show(Maquina $maquina)
     {
         $fabrica = Fabrica::where('id', auth()->user()->fabrica_id)->first();
-        $equipamentos = Equipamento::where('fabricas_id', auth()->user()->fabrica_id)->get();
+        $equipamentos = Equipamento::where('fabrica_id', auth()->user()->fabrica_id)->get();
         return view('maquina.show', compact('maquina', 'equipamentos', 'fabrica'));
     }
 

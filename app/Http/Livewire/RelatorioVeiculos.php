@@ -54,6 +54,8 @@ class RelatorioVeiculos extends Component
 
         if ($this->categoriaVeiculo != null) {
             $veiculos->where('categorias_veiculos_id', $this->categoriaVeiculo);
+        } else {
+            $veiculos->where('veiculos.fabrica_id', $fabrica->id);
         }
 
         $veiculos = $veiculos->get();
