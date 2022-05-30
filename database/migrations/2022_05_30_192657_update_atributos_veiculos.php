@@ -32,6 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::drop('veiculos');
         Schema::create('veiculos', function (Blueprint $table) {
             $table->id();
             $table->string('marca');
