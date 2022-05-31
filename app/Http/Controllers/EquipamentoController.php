@@ -18,7 +18,7 @@ class EquipamentoController extends Controller
     public function index()
     {
         $fabrica = auth()->user()->fabrica()->first();
-        $equipamentos = Equipamento::where('fabricas_id', $fabrica->id)->get();
+        $equipamentos = Equipamento::where('fabrica_id', $fabrica->id)->get();
         return view('equipamento.index', compact('equipamentos'));
     }
 
@@ -30,7 +30,7 @@ class EquipamentoController extends Controller
     public function store(StoreEquipamentoRequest $request)
     {
         $equipamento = new Equipamento($request->validated());
-        $equipamento->fabricas_id = auth()->user()->fabrica_id;
+        $equipamento->fabrica_id = auth()->user()->fabrica_id;
         $equipamento->save();
         return redirect()->route('equipamentos.create')->withStatus("Equipamento salvo com sucesso!");
     }
@@ -44,7 +44,7 @@ class EquipamentoController extends Controller
     {
         $equipamento->nome = $request->nome;
         $equipamento->data_compra = $request->data_compra;
-        $equipamento->fabricas_id = auth()->user()->fabrica_id;
+        $equipamento->fabrica_id = auth()->user()->fabrica_id;
 
         $equipamento->update();
         $equipamento->save();
