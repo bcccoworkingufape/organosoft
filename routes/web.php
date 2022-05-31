@@ -62,6 +62,7 @@ Route::middleware([
     Route::post('/coleta/{coleta_id}/store', [ColetaController::class, 'store'])->name('coleta.store');
     Route::get('/coleta/{coleta_id}/create', [ColetaController::class, 'pCreate'])->name('coleta.p.create');
     Route::post('/coleta/create', [ColetaController::class, 'create'])->name('coleta.create');
+    Route::get('/coleta/{coleta_id}/atualizastatus', [ColetaController::class, 'atualizastatus'])->name('coleta.atualizar.status');
 
     Route::get('/qualidade/{coleta_id}/view', [QualidadeColetaController::class, 'view'])->name('qualidade.view');
     Route::get('/qualidade/{coleta_id}/edit', [QualidadeColetaController::class, 'edit'])->name('qualidade.edit');

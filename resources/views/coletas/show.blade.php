@@ -10,9 +10,20 @@
         
         @foreach ($coletas as $coleta)
             <div class="flex flex-wrap w-full mb-4">
-                <div class="w-5/6 flex flex-wrap">
+                <div class="w-2/3 flex flex-wrap">
                     <a href="{{route('coleta.view', $coleta->id)}}" class="flex w-full text-primary text-3xl font-bold">Agendado para {{$coleta->data}}</a>
                     
+                </div>
+                <div>
+                    @if($qualidades[$coleta->id] > 0)
+                        <a href="{{route('qualidade.view', $qualidades[$coleta->id])}}" class="mr-2 w-60 organosoft-btn justify-center">
+                            Ver avalicação
+                        </a>
+                    @elseif($qualidades[$coleta->id] == 0 && $coleta->status == "entregue")
+                        <a href="{{route('qualidade.p.create', $coleta->id)}}" class="mr-2 w-60 organosoft-btn justify-center">
+                            Avalicação de qualidade
+                        </a>
+                    @endif
                 </div>
                 <div class="flex place-items-center">
                     <a class="mr-2 w-6" href="{{route('coleta.edit', $coleta->id)}}" title="Editar coleta">

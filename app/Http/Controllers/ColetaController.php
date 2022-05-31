@@ -5,6 +5,7 @@ use App\Models\Granja;
 use App\Models\Coleta;
 use App\Models\QualidadeColeta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -21,7 +22,17 @@ class ColetaController extends Controller
     {
         $granja = Granja::find($granja_id);
         $coletas = Coleta::where('id_granja', $granja_id)->get();
-        return view('coletas.show', ['coletas' => $coletas]);
+        $qualidades = array();
+        foreach($coletas as $coleta){
+            $qualidade = QualidadeColeta::where('id_coleta',$coleta->id)->get();
+            $temp = array();
+            if(sizeof($qualidade)){
+                $qualidades += [$coleta->id => $qualidade[0]['id']];
+            }else{
+                $qualidades += [$coleta->id => 0];
+            }
+        }
+        return view('coletas.show', ['coletas' => $coletas, 'qualidades' => $qualidades]);
     }
 
     public function view($coleta_id)
@@ -33,7 +44,7 @@ class ColetaController extends Controller
         }else{
             $qualidade = 0;
         }
-        return view('coletas.view', ['coleta' => $coleta, 'qualidade' => $qualidade]);
+        return view('coletas.view', ['coleta' => $coleta]);
     }
 
     public function edit($coleta_id)
@@ -53,7 +64,7 @@ class ColetaController extends Controller
         //dd($dados['data']);
         $coleta = Coleta::find($coleta_id);
 
-        $coleta->status = 'status 1';
+        //$coleta->status = 'status 1';
         $coleta->hora = $dados['hora'];
         $coleta->data = $dados['data'];
         $coleta->save();
@@ -75,9 +86,22 @@ class ColetaController extends Controller
             'data' => 'required',
         ]);
         $dados = $request->all();
-        $dados['status'] = 'status 1';
+        $dados['status'] = 'preparacao';
         $coleta = Coleta::create($dados);
 
+        return redirect()->back();
+    }
+
+    public function atualizastatus($coleta_id){
+        $coleta = Coleta::find($coleta_id);
+        if($coleta->status == "preparacao"){
+            $coleta->status = "despacho";
+        }elseif($coleta->status == "despacho"){
+            $coleta->status = "em_rota";
+        }elseif($coleta->status == "em_rota"){
+            $coleta->status = "entregue";
+        }
+        $coleta->save();
         return redirect()->back();
     }
 }
