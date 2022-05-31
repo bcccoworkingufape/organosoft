@@ -15,7 +15,7 @@
                 <x-form-control class="w-full">
                     <x-label for="equipamento_id" value="Equipamento da Máquina:"></x-label>
                     <x-select name="equipamentos_maquinas_id" id="equipamentos_maquinas_id" wire:model="equipamento">
-                        <option value="" selected>Todas</option>
+                        <option value="" selected>Todos</option>
                         @foreach($equipamentos as $equipamento)
                             <option value="{{ $equipamento->id }}">
                                 {{ $equipamento->nome }}
