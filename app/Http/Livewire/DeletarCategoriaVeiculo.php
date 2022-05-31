@@ -32,6 +32,6 @@ class DeletarCategoriaVeiculo extends Component
             $this->categoriaVeiculo->delete();
             return redirect()->route('categoriaVeiculos.index')->with('status', 'Categoria de veículos deletada com sucesso!');
         }
-        return redirect()->route('categoriaVeiculos.index')->with('status', 'Categoria de veículos não pode ser excluída existe veículos vinculados a ela!');
+        return redirect()->route('categoriaVeiculos.index')->with('status', 'Categoria de veículos não pode ser excluída, existe veículos vinculados a ela!');
     }
 }
