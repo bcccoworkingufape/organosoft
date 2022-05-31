@@ -4,18 +4,18 @@
           <img src="{{asset('img/factory-spaces-outline.svg')}}" alt="link relatório de espaços fábrica">
         </span>
         <span class="title">
-          Espaços Fábrica
+          Espaços da Fábrica
         </span>
     </button>
 
     <x-jet-dialog-modal wire:model="show">
-        <x-slot name="title">Relatório de Espaços Fábrica</x-slot>
+        <x-slot name="title">Relatório de Espaços da Fábrica</x-slot>
         <x-slot name="content">
             <x-form wire:submit.prevent="exportar">
                 <x-form-control class="w-full">
                     <x-label for="tipoItemEspacoFabrica_id" value="Tipo de Item Espaços Fábrica:"></x-label>
                     <x-select name="tipo_item_espacos_fabrica_id" id="tipo_item_espacos_fabrica_id" wire:model="tipoItemEspacoFabrica">
-                        <option value="" selected>Todas</option>
+                        <option value="" selected>Todos</option>
                         @foreach($tiposItensEspacosFabrica as $tipoItemEspacoFabrica)
                             <option value="{{ $tipoItemEspacoFabrica->id }}">
                                 {{ $tipoItemEspacoFabrica->nome }}
