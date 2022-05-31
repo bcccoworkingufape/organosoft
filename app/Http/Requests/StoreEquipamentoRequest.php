@@ -29,4 +29,11 @@ class StoreEquipamentoRequest extends FormRequest
         ]
         ;
     }
+
+    public function messages()
+    {
+        return [
+            'data_compra.before' => 'Data de Compra deve ser menor ou igual a data atual',
+        ];
+    }
 }
