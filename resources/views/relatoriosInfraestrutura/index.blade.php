@@ -7,7 +7,7 @@
       <!-- Criar mais desses para cada novo relatório -->
       <livewire:relatorio-veiculos></livewire:relatorio-veiculos>
       <livewire:relatorio-produtores></livewire:relatorio-produtores>
-
+      <livewire:relatorio-granjas></livewire:relatorio-granjas>
     </div>
   </x-slot>
 </x-auth>
