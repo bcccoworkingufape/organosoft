@@ -6,6 +6,7 @@ use App\Models\Coleta;
 use App\Models\QualidadeColeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -67,6 +68,9 @@ class ColetaController extends Controller
         //$coleta->status = 'status 1';
         $coleta->hora = $dados['hora'];
         $coleta->data = $dados['data'];
+        $coleta->motorista = $dados['motorista'];
+        $coleta->status = $dados['status'];
+        $coleta->observacao = $dados['observacao'];
         $coleta->save();
 
         return redirect()->back();
@@ -75,8 +79,29 @@ class ColetaController extends Controller
 
     public function pCreate($granja)
     {
-
-        return view('coletas.create', ['granja' => $granja]);
+        //granja-produtor  = contrato-rpodutor
+        $contratoGranja = DB::table('contrato_granja')
+        ->join(
+            'granjas',
+            'contrato_granja.granja_id', '=', 'granjas.id'
+        )
+        ->join(
+            'contratos',
+            'contrato_granja.contrato_id', '=', 'contratos.id'
+        )
+        ->where(
+            'granjas.id', '=' ,$granja
+        )
+        ->select(
+            'contratos.status',
+        )->get();
+        $contratoValido = 0;//1=> valido | 0=> invalido
+        if(sizeof($contratoGranja)){
+            if($contratoGranja[0]->status == "Em execução"){
+                $contratoValido = 1;
+            }
+        }
+        return view('coletas.create', ['granja' => $granja, 'contratoValido' => $contratoValido]);
     }
 
     public function create(Request $request)
@@ -86,7 +111,7 @@ class ColetaController extends Controller
             'data' => 'required',
         ]);
         $dados = $request->all();
-        $dados['status'] = 'preparacao';
+        //$dados['status'] = 'preparacao';
         $coleta = Coleta::create($dados);
 
         return redirect()->back();

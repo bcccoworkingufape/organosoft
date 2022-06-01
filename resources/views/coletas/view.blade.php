@@ -23,6 +23,14 @@
                     <x-label for="hora" value="Hora da Coleta:" />
                     <x-input readonly id="hora" type="time" name="hora" value="{{$coleta->hora}}" required/>
                 </x-form-control>
+                <x-form-control class="w-1/2 pl-4">
+                    <x-label for="motorista" value="Motorista:" />
+                    <x-input readonly id="motorista" type="text" name="motorista" value="{{$coleta->motorista}}" required/>
+                </x-form-control>
+                <x-form-control class="w-full pl-4">
+                    <x-label for="observacao" value="Observação:" />
+                    <x-input readonly id="observacao" type="text" name="observacao" value="{{$coleta->observacao}}" required/>
+                </x-form-control>
             </x-form>
         </form>
         <div class="flex justify-center">
