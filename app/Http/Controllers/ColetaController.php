@@ -38,27 +38,8 @@ class ColetaController extends Controller
 
     public function showAll()
     {
-        $coletas = DB::table('granjas')
-            ->join(
-                'coletas',
-                'granjas.id', '=', 'coletas.id_granja'
-            )
-            ->select(
-                'granjas.id as id_granja',
-                'granjas.nome as nome_granja',
-                'granjas.quant_aves as produtor_id',
-                'granjas.produtor_id as quant_aves',
-                'coletas.id as id',
-                'coletas.id_granja as id_granja',
-                'coletas.hora as hora',
-                'coletas.data as data',
-                'coletas.status as status',
-                'coletas.motorista as motorista',
-                'coletas.observacao as observacao',
-                'coletas.created_at as created_at',
-                'coletas.updated_at as updated_at',
-            )->get();
-        //dd($granja);
+        $coletas = Coleta::all();
+        $granjas = Granja::all();
         $qualidades = array();
         foreach($coletas as $coleta){
             $qualidade = QualidadeColeta::where('id_coleta',$coleta->id)->get();
@@ -69,7 +50,7 @@ class ColetaController extends Controller
             }
         }
         //dd($qualidades);
-        return view('coletas.showAll', ['coletas' => $coletas, 'qualidades' => $qualidades]);
+        return view('coletas.showAll', ['coletas' => $coletas, 'granjas' => $granjas, 'qualidades' => $qualidades]);
     }
 
     public function view($coleta_id)

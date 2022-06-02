@@ -11,7 +11,13 @@
         @foreach ($coletas as $coleta)
             <div class="flex flex-wrap w-full mb-4">
                 <div class="w-2/3 flex flex-wrap">
-                    <a href="{{route('coleta.view', $coleta->id)}}" class="flex w-full text-primary text-3xl font-bold">Agendado: {{$coleta->data}} | Granja: {{$coleta->nome_granja}} </a>
+                    <a href="{{route('coleta.view', $coleta->id)}}" class="flex w-full text-primary text-3xl font-bold">Agendado: {{$coleta->data}} | Granja: 
+                        @foreach($granjas as $granja)
+                            @if($granja->id == $coleta->id_granja)
+                                {{$granja->nome}}
+                            @endif
+                        @endforeach
+                    </a>
                     
                 </div>
                 <div class="flex place-items-center">
@@ -29,7 +35,7 @@
                     <a class="mr-2 w-6" href="{{route('coleta.edit', $coleta->id)}}" title="Editar coleta">
                         <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
                     </a>
-                    {{-- <livewire:deletar-coleta :coleta="$coleta" :cor="'white'"> --}}
+                    <livewire:deletar-coleta :coleta="$coleta" :cor="'white'">
                 </div>
             </div>
             <hr class="mb-2">
