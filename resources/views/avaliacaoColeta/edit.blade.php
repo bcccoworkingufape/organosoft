@@ -17,8 +17,19 @@
                 </div>
                 <x-form-control class="w-1/2 pl-4">
                     <x-label for="avaliacaoQualidade" value="Avaliação:" />
-                    <x-input id="avaliacaoQualidade" type="text" name="avaliacaoQualidade" value="{{$qualidade->avaliacaoQualidade}}"/>
+                    <x-select id="avaliacaoQualidade" name="avaliacaoQualidade" value="{{$qualidade->avaliacaoQualidade}}" required>
+                        <option value="{{$qualidade->avaliacaoQualidade}}" disabled selected>{{$qualidade->avaliacaoQualidade}}</option>
+                        <option value="Ótimo">Ótimo</option>
+                        <option value="Bom">Bom</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Ruim">Ruim</option>
+                        <option value="Péssimo">Péssimo</option>
+                    </x-select>
                 </x-form-control>
+                {{-- <x-form-control class="w-1/2 pl-4">
+                    <x-label for="avaliacaoQualidade" value="Avaliação:" />
+                    <x-input id="avaliacaoQualidade" type="text" name="avaliacaoQualidade" value="{{$qualidade->avaliacaoQualidade}}"/>
+                </x-form-control> --}}
                 <x-form-control class="w-1/2 pr-4">
                     <x-label for="descricao" value="Descrição:" />
                     <x-input id="descricao" type="text" name="descricao" value="{{$qualidade->descricao}}"/>

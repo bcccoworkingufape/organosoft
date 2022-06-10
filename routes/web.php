@@ -10,6 +10,7 @@ use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\EquipamentoController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\EspacosFabricaController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/relatoriosInfraestrutura', function () {
+        return view('relatoriosInfraestrutura.index');
+    })->name('relatoriosInfraestrutura');
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');
@@ -58,6 +62,8 @@ Route::middleware([
     Route::post('/coleta/{coleta_id}/store', [ColetaController::class, 'store'])->name('coleta.store');
     Route::get('/coleta/{coleta_id}/create', [ColetaController::class, 'pCreate'])->name('coleta.p.create');
     Route::post('/coleta/create', [ColetaController::class, 'create'])->name('coleta.create');
+    Route::get('/coleta/{coleta_id}/atualizastatus', [ColetaController::class, 'atualizastatus'])->name('coleta.atualizar.status');
+    Route::get('/coletas/show', [ColetaController::class, 'showAll'])->name('coleta.show.all');
 
     Route::get('/qualidade/{coleta_id}/view', [QualidadeColetaController::class, 'view'])->name('qualidade.view');
     Route::get('/qualidade/{coleta_id}/edit', [QualidadeColetaController::class, 'edit'])->name('qualidade.edit');
@@ -74,5 +80,23 @@ Route::middleware([
 
     Route::resource('maquinas', MaquinaController::class);
 
-    Route::resource('espacosFabrica', EspacosFabricaController::class);
+    Route::resource('veiculos', VeiculoController::class)->parameters([
+        'veiculos' => 'veiculo',
+    ]);
+
+    Route::resource('categoriaVeiculos', CategoriaVeiculoController::class)->parameters([
+        'categoriasVeiculos' => 'categoriaVeiculo',
+    ]);
+
+    Route::resource('equipamentos', EquipamentoController::class)->parameters([
+        'equipamentos' => 'equipamento',
+    ]);
+
+    Route::resource('maquinas', MaquinaController::class)->parameters([
+        'maquinas' => 'maquina',
+    ]);
+
+    Route::resource('espacosFabrica', EspacosFabricaController::class)->parameters([
+        'espacosFabrica' => 'espacosFabrica'
+    ]);
 });

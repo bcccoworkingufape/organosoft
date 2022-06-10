@@ -1,294 +1,328 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer components {
-  body {
-    @apply bg-body-bg;
-    height: 100vh;
-  }
+    body {
+        @apply bg-body-bg;
+        height: 100vh;
+    }
 
-  .organosoft-main {
-    @apply md:w-full;
-    min-height: calc(100% - 64px - 3em);
-    width: 100%;
-    max-width: 1200px;
-    margin: 1.5em auto;
-    padding: 0 1.5em;
-  }
+    .organosoft-main {
+        @apply md:w-full;
+        min-height: calc(100% - 64px - 3em);
+        width: 100%;
+        max-width: 1200px;
+        margin: 1.5em auto;
+        padding: 0 1.5em;
+    }
 
-  .organosoft-main__title {
-    @apply text-4xl;
-    @apply font-bold;
-    @apply text-center;
-    @apply text-primary;
-    padding-bottom: 1rem;
-  }
+    .organosoft-main__title {
+        @apply text-4xl;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-primary;
+        padding-bottom: 1rem;
+    }
 
-  .organosoft-main__body {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-  }
+    .organosoft-main__body {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+    }
 
-  .organosoft-main__body__container {
-    flex: 1 1 70%;
-  }
+    .organosoft-main__body__container {
+        flex: 1 1 70%;
+    }
 
-  .organosoft-main__body__container main {
-    @apply bg-white;
-    padding: 1.5em;
-    margin-bottom: 1.5em;
-  }
+    .organosoft-main__body__container main {
+        @apply bg-white;
+        padding: 1.5em;
+        margin-bottom: 1.5em;
+    }
 
-  .organosoft-main__body > section {
-    flex: 1 1 100%;
-    padding: 1.5em;
-  }
+    .organosoft-main__body > section {
+        flex: 1 1 100%;
+        padding: 1.5em;
+    }
 
+    .organosoft-main__body > aside {
+        flex: 0 0 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        padding-left: 1.5em;
+    }
 
-  .organosoft-main__body > aside {
-    flex: 0 0 30%;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    align-items: center;
-    padding-left: 1.5em;
-  }
+    .organosoft-main__body > aside > * {
+        width: 100%;
+    }
 
-  .organosoft-main__body > aside > * {
-    width: 100%;
-  }
+    .organosoft-main_bottom-buttons {
+        display: flex;
+        gap: 1.5em;
+    }
 
-  .organosoft-main_bottom-buttons {
-    display: flex;
-    gap: 1.5em;
-  }
+    .organosoft-card {
+        @apply bg-white;
+        padding: 1em;
+    }
 
-  .organosoft-card {
-    @apply bg-white;
-    padding: 1em;
-  }
+    .organosoft-btn {
+        @apply transition-colors;
+        @apply bg-primary;
+        @apply py-2;
+        @apply px-6;
+        @apply font-semibold;
+        @apply text-white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-  .organosoft-btn {
-    @apply transition-colors;
-    @apply bg-primary;
-    @apply py-2;
-    @apply px-6;
-    @apply font-semibold;
-    @apply text-white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .organosoft-btn:hover {
+        @apply bg-primary-dark;
+    }
 
-  .organosoft-btn:hover {
-    @apply bg-primary-dark;
-  }
+    .organosoft-btn img {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin: 0 0.5em;
+    }
 
-  .organosoft-btn img {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin: 0 0.5em;
-  }
+    .organosoft-form-control {
+        @apply pt-4;
+        @apply flex;
+        @apply flex-col;
+    }
 
-  .organosoft-form-control {
-    @apply pt-4;
-    @apply flex;
-    @apply flex-col;
-  }
+    .organosoft-form-control textarea {
+        @apply transition-colors;
+        border: none;
+        border-bottom: 2px solid theme("colors.neutral.300");
+    }
 
-  .organosoft-form-control textarea {
-    @apply transition-colors;
-    border: none;
-    border-bottom: 2px solid theme('colors.neutral.300');
-  }
+    .organosoft-form-control textarea:focus {
+        @apply ring-0;
+        border: none;
+        border-bottom: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-form-control textarea:focus {
-    @apply ring-0;
-    border: none;
-    border-bottom: 2px solid theme('colors.primary');
-  }
+    .organosoft-label {
+        @apply text-sm;
+        @apply text-neutral-500;
+    }
 
-  .organosoft-label {
-    @apply text-sm;
-    @apply text-neutral-500;
-  }
+    .organosoft-input {
+        @apply transition-colors;
+        border: none;
+        border-bottom: 2px solid theme("colors.neutral.300");
+    }
 
-  .organosoft-input {
-    @apply transition-colors;
-    border: none;
-    border-bottom: 2px solid theme('colors.neutral.300');
-  }
+    .organosoft-input:focus {
+        @apply ring-0;
+        border: none;
+        border-bottom: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-input:focus {
-    @apply ring-0;
-    border: none;
-    border-bottom: 2px solid theme('colors.primary');
-  }
+    .organosoft-checkbox,
+    .organosoft-radio {
+        border: 2px solid theme("colors.neutral.300");
+    }
 
-  .organosoft-checkbox, .organosoft-radio {
-    border: 2px solid theme('colors.neutral.300');
-  }
+    .organosoft-checkbox:focus,
+    .organosoft-radio:focus {
+        @apply ring-0;
+        border: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-checkbox:focus, .organosoft-radio:focus {
-    @apply ring-0;
-    border: 2px solid theme('colors.primary');
-  }
+    .organosoft-radio:focus {
+        @apply ring-2;
+        @apply ring-primary;
+    }
 
-  .organosoft-radio:focus {
-    @apply ring-2;
-    @apply ring-primary;
-  }
+    .organosoft-radio:hover,
+    .organosoft-checkbox:hover {
+        color: theme("colors.primary-dark");
+    }
 
-  .organosoft-radio:hover, .organosoft-checkbox:hover {
-    color: theme('colors.primary-dark');
-  }
+    .organosoft-checkbox:checked,
+    .organosoft-radio:checked {
+        @apply bg-primary;
+        border: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-checkbox:checked, .organosoft-radio:checked {
-    @apply bg-primary;
-    border: 2px solid theme('colors.primary');
-  }
+    .organosoft-checkbox:checked:focus,
+    .organosoft-radio:checked:focus {
+        @apply bg-primary;
+        border: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-checkbox:checked:focus, .organosoft-radio:checked:focus {
-    @apply bg-primary;
-    border: 2px solid theme('colors.primary');
-  }
+    .organosoft-select {
+        border: none;
+        border-bottom: 2px solid theme("colors.neutral.300");
+    }
 
-  .organosoft-select {
-    border: none;
-    border-bottom: 2px solid theme('colors.neutral.300');
-  }
+    .organosoft-select:focus {
+        @apply ring-0;
+        border-bottom: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-select:focus {
-    @apply ring-0;
-    border-bottom: 2px solid theme('colors.primary');
-  }
+    .organosoft-datepicker {
+        border: none;
+        border-bottom: 2px solid theme("colors.neutral.300");
+    }
 
-  .organosoft-datepicker {
-    border: none;
-    border-bottom: 2px solid theme('colors.neutral.300');
-  }
+    .organosoft-datepicker:focus {
+        @apply ring-0;
+        border: none;
+        border-bottom: 2px solid theme("colors.primary");
+    }
 
-  .organosoft-datepicker:focus {
-    @apply ring-0;
-    border: none;
-    border-bottom: 2px solid theme('colors.primary');
-  }
+    .organosoft-login-card {
+        @apply bg-white;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2em;
+        margin: 2em;
+    }
 
-  .organosoft-login-card {
-    @apply bg-white;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2em;
-    margin: 2em;
-  }
+    .organosoft-login-card__logo {
+        text-align: center;
+    }
 
-  .organosoft-login-card__logo {
-    text-align: center;
-  }
+    .organosoft-list {
+    }
 
-  .organosoft-list {
+    .organosoft-list__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 1em 0;
+    }
 
+    .organosoft-list__item__icon {
+        margin-right: 1em;
+    }
 
-  }
+    .organosoft-list__item__title {
+        @apply flex;
+        @apply flex-wrap;
+    }
 
-  .organosoft-list__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 1em 0;
-  }
+    .organosoft-list__item__title a {
+        @apply flex;
+        @apply w-full;
+        @apply text-primary;
+        @apply text-3xl;
+        @apply font-bold;
+    }
 
-  .organosoft-list__item__icon {
-    margin-right: 1em;
-  }
+    .organosoft-list__item__title p {
+        @apply text-sm;
+        @apply text-gray-500;
+        @apply w-full;
+    }
 
-  .organosoft-list__item__title {
-    @apply flex;
-    @apply flex-wrap;
-  }
+    .organosoft-vehicle-details {
+        display: flex;
+        align-items: center;
+    }
 
-  .organosoft-list__item__title a {
-    @apply flex;
-    @apply w-full;
-    @apply text-primary;
-    @apply text-3xl;
-    @apply font-bold;
-  }
+    .organosoft-vehicle-details__icon {
+        width: 100%;
+        max-width: 200px;
+        margin-right: 2em;
+    }
 
-  .organosoft-list__item__title p {
-    @apply text-sm;
-    @apply text-gray-500;
-    @apply w-full;
-  }
+    .organosoft-vehicle-details__icon img {
+        width: 100%;
+    }
 
+    .organosoft-vehicle-details__info {
+    }
 
-  .organosoft-vehicle-details {
-    display: flex;
-    align-items: center;
-  }
+    .organosoft-menu {
+        position: relative;
+        transition: background-color 200ms ease-out;
+        padding: 0 1em;
+    }
 
-  .organosoft-vehicle-details__icon {
-    width: 100%;
-    max-width: 200px;
-    margin-right: 2em;
-  }
+    .organosoft-menu:hover {
+        background-color: theme("colors.primary-dark");
+        transition: background-color 150ms ease-in;
+    }
 
-  .organosoft-vehicle-details__icon img {
-    width: 100%;
-  }
+    .organosoft-menu__toggle {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-weight: 700;
+    }
 
-  .organosoft-vehicle-details__info {
+    .organosoft-menu__dropdown {
+        display: none;
+        flex-direction: column;
+        text-align: left;
+        position: absolute;
+        background-color: theme("colors.white");
+        color: theme("colors.primary");
+        font-weight: 700;
+        width: max-content;
+        max-width: 200px;
+        z-index: 999;
+    }
 
-  }
+    .organosoft-menu__dropdown.show {
+        display: flex;
+    }
 
-  .organosoft-menu {
-    position: relative;
-    transition: background-color 200ms ease-out;
-    padding: 0 1em;
-  }
+    .organosoft-menu__menu-item {
+        padding: 0.5em 1em;
+        background-color: theme("colors.white");
+        transition: background-color 200ms ease-out;
+    }
 
-  .organosoft-menu:hover {
-    background-color: theme('colors.primary-dark');
-    transition: background-color 150ms ease-in;
-  }
+    .organosoft-menu__menu-item:hover {
+        background-color: theme("colors.neutral.200");
+        transition: background-color 150ms ease-in;
+    }
 
-  .organosoft-menu__toggle {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    font-weight: 700;
-  }
+    .organosoft-reports-grid {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5em;
+    }
 
-  .organosoft-menu__dropdown {
-    display: none;
-    flex-direction: column;
-    text-align: left;
-    position: absolute;
-    background-color: theme('colors.white');
-    color: theme('colors.primary');
-    font-weight: 700;
-    width: max-content;
-    max-width: 200px;
-    z-index: 999;
-  }
+    .organosoft-reports-grid__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: theme("colors.primary");
+        flex: 0 0 8em;
+        height: 8em;
+        padding: 0 2em;
+        color: theme("colors.white");
+        font-weight: 600;
+    }
 
-  .organosoft-menu__dropdown.show {
-    display: flex;
-  }
+    .organosoft-reports-grid__item .title {
+        text-align: center;
+    }
 
-  .organosoft-menu__menu-item {
-    padding: 0.5em 1em;
-    background-color: theme('colors.white');
-    transition: background-color 200ms ease-out;
-  }
+    .organosoft-reports-grid__item .icon {
+        display: flex;
+        justify-content: center;
+        padding: 0.5em;
+    }
 
-  .organosoft-menu__menu-item:hover {
-    background-color: theme('colors.neutral.200');
-    transition: background-color 150ms ease-in;
-  }
+    .organosoft-pdf__title {
+        color: theme("colors.primary");
+    }
 }

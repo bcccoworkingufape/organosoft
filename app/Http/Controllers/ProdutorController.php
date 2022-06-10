@@ -51,6 +51,14 @@ class ProdutorController extends Controller
     public function store(StoreProdutorRequest $request)
     {
         $produtor = new Produtor($request->validated());
+        //Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime("now")).".".$extension;
+            $requestImage->move(public_path('img/perfilPordutor'), $imageName);
+            $produtor->imagem = $imageName;
+        }
         $endereco = new Endereco($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco->save();
         $produtor->endereco_id = $endereco->id;
@@ -91,6 +99,14 @@ class ProdutorController extends Controller
      */
     public function update(UpdateProdutorRequest $request, Produtor $produtor)
     {
+        //Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime("now")).".".$extension;
+            $requestImage->move(public_path('img/perfilPordutor'), $imageName);
+            $produtor->imagem = $imageName;
+        }
         $produtor->fill($request->validated());
         $endereco = $produtor->endereco;
         $endereco->fill($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));

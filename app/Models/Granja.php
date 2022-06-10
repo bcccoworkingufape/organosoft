@@ -11,7 +11,7 @@ class Granja extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['nome', 'quant_aves'];
+    protected $fillable = ['nome', 'quant_aves', 'imagem'];
 
     public function endereco()
     {

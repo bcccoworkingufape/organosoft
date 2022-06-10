@@ -24,13 +24,44 @@
                     <x-label for="hora" value="Hora da Coleta:" />
                     <x-input id="hora" type="time" name="hora" value="" required/>
                 </x-form-control>
+                <x-form-control class="w-1/2 pl-4">
+                    <x-label for="motorista" value="Motorista:" />
+                    <x-input id="motorista" type="text" name="motorista" value="" required/>
+                </x-form-control>
+                <x-form-control class="w-1/2 pl-4">
+                    <x-label for="status" value="Status:" />
+                    <x-select id="status" name="status" required>
+                        <option value="" disabled selected>-- Status --</option>
+                        <option value="preparacao">Preparação</option>
+                        <option value="despacho">Despacho</option>
+                        <option value="em_rota">Em rota</option>
+                        <option value="entregue">Entregue</option>
+                    </x-select>
+                </x-form-control>
+                <x-form-control class="w-full pl-4">
+                    <x-label for="observacao" value="Observação:" />
+                    <x-input id="observacao" type="text" name="observacao" value="" required/>
+                </x-form-control>
             </x-form>
         </form>
-        <div class="flex justify-center">
-            <x-button class="mt-4" form="form">
-                Salvar
-            </x-button>
-        </div>
+        
+        @if($contratoValido == 1)
+            <div class="flex justify-center">
+                <x-button class="mt-4" form="form">
+                    Salvar
+                </x-button>
+            </div>
+        @else
+            <div class="flex justify-center">
+                <x-button disabled class="mt-4" form="form" >
+                    Salvar
+                </x-button>
+            </div>
+            <x-form-control class="w-full pl-4 justify-center">
+                <x-label for="error" value="Granja não possui contrato válido!" />
+            </x-form-control>
+        @endif
+        
     </x-slot>
     <script src="{{asset('js/estado-cidade.js')}}"></script>
 </x-auth>

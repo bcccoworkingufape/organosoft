@@ -13,12 +13,24 @@
             @if(count($espacosFabricas) > 0)
               @foreach ($espacosFabricas as $espacoFabrica)
                   <div class="organosoft-list__item">
-                      <div class="organosoft-list__item__title">
-                          <a href="{{ route('espacosFabrica.show', $espacoFabrica) }}">{{$espacoFabrica->nome}}</a>
-                          <p>{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}</p>
-                          <p>{{ $espacoFabrica->observacoes }}</p>
+                      <figure >
+                        <div class="organosoft-list__item__icon">
+                            @if($espacoFabrica->tipoItemEspacoFabrica()->first()->nome == "Resíduos")
+                              <img src="{{asset('img/residuos.svg')}}" alt="{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}">
+                            @elseif($espacoFabrica->tipoItemEspacoFabrica()->first()->nome == "Insumos")
+                              <img src="{{asset('img/insumos.svg')}}" alt="{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}">
+                            @else
+                              <img src="{{asset('img/produtos.svg')}}" alt="{{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}">
+                            @endif
+                        </div>
+                      </figure>
+
+                      <div class="w-5/6 flex flex-wrap">
+                          <a href="{{ route('espacosFabrica.show', $espacoFabrica) }}" class="flex w-full text-primary text-3xl font-bold">{{$espacoFabrica->nome}}</a>
+                          <h3 class="flex w-full text-primary">Tipo: {{ $espacoFabrica->tipoItemEspacoFabrica()->first()->nome }}</h3>
                           <p>{{ $espacoFabrica->largura }} X {{ $espacoFabrica->altura }} X {{ $espacoFabrica->comprimento }}</p>
                       </div>
+
                       <div class="flex place-items-center">
                           <a class="mr-2 w-6" href="{{route('espacosFabrica.edit', $espacoFabrica)}}" title="Editar espaço da fabrica">
                               <img src="{{asset('img/pencil-primary.svg')}}" alt="link editar">
