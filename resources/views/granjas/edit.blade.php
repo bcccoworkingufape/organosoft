@@ -4,7 +4,7 @@
         Editar Granja
     </x-slot>
     <x-slot name="bg_main">
-        <form id="form" action="{{route('granjas.update', $granja)}}" method="POST" class="justify-center flex">
+        <form id="form" action="{{route('granjas.update', $granja)}}" method="POST" class="justify-center flex" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <x-form class="pt-4 w-2/3 flex flex-wrap">
@@ -16,6 +16,13 @@
                         </div>
                     @endif
                 </div>
+                <div class="mt-2 md:mt-0 w-full md:w-1/4 flex items-center justify-center">
+                    <img src="/img/perfilGranja/{{$granja->imagem}}" alt="logo img" class="w-40 md:w-3/4">
+                </div>
+                <x-form-control class="w-full">
+                    <x-label for="image" value="Imagem:" />
+                    <x-input id="image" type="file" name="image" class="from-control-file"/>
+                </x-form-control>
                 <x-form-control class="w-1/2 pr-4">
                     <x-label for="nome" value="Nome da Granja:" />
                     <x-input id="nome" type="text" name="nome" value="{{old('nome',$granja->nome)}}" required/>

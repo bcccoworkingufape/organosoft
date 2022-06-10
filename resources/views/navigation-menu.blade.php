@@ -66,6 +66,9 @@
                             ],
                         ]">
                     </livewire:dropdown-menu>
+                    <x-nav-link href="{{ route('coleta.show.all') }}" :active="request()->routeIs('coleta.show.all')">
+                        Coletas
+                    </x-nav-link>
                 </div>
             </div>
 

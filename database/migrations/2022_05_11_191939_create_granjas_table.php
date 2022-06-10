@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('granjas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
+            $table->string('imagem');
             $table->integer('quant_aves')->nullable();
             $table->foreignId('produtor_id')->constrained('produtores');
             $table->foreignId('endereco_id')->constrained();

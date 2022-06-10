@@ -23,6 +23,32 @@
                     <x-label for="hora" value="Hora da Coleta:" />
                     <x-input id="hora" type="time" name="hora" value="{{$coleta->hora}}" required/>
                 </x-form-control>
+                <x-form-control class="w-1/2 pl-4">
+                    <x-label for="motorista" value="Motorista:" />
+                    <x-input id="motorista" type="text" name="motorista" value="{{$coleta->motorista}}" required/>
+                </x-form-control>
+                <x-form-control class="w-1/2 pl-4">
+                    <x-label for="status" value="Status:" />
+                    <x-select id="status" name="status" required>
+                        @if($coleta->status == "preparacao")
+                        <option value="{{$coleta->status}}" selected>Preparação</option>
+                        @elseif($coleta->status == "despacho")
+                        <option value="{{$coleta->status}}" selected>Despacho</option>
+                        @elseif($coleta->status == "em_rota")
+                        <option value="{{$coleta->status}}" selected>Em rota</option>
+                        @else
+                        <option value="{{$coleta->status}}" selected>Entregue</option>
+                        @endif
+                        <option value="preparacao">Preparação</option>
+                        <option value="despacho">Despacho</option>
+                        <option value="em_rota">Em rota</option>
+                        <option value="entregue">Entregue</option>
+                    </x-select>
+                </x-form-control>
+                <x-form-control class="w-full pl-4">
+                    <x-label for="observacao" value="Observação:" />
+                    <x-input id="observacao" type="text" name="observacao" value="{{$coleta->observacao}}" required/>
+                </x-form-control>
             </x-form>
         </form>
         <div class="flex justify-center">

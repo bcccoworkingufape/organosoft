@@ -4,7 +4,7 @@
         Cadastrar Granja
     </x-slot>
     <x-slot name="bg_main">
-        <form id="form" action="{{route('produtores.granjas.store', $produtor)}}" method="POST" class="justify-center flex">
+        <form id="form" action="{{route('produtores.granjas.store', $produtor)}}" method="POST" class="justify-center flex" enctype="multipart/form-data">
             @csrf
             <x-form class="pt-4 w-2/3 flex flex-wrap">
                 <div class="w-full">
@@ -15,6 +15,10 @@
                         </div>
                     @endif
                 </div>
+                <x-form-control class="w-full">
+                    <x-label for="image" value="Imagem:" />
+                    <x-input id="image" type="file" name="image" class="from-control-file"/>
+                </x-form-control>
                 <x-form-control class="w-1/2 pr-4">
                     <x-label for="nome" value="Nome da Granja:" />
                     <x-input id="nome" type="text" name="nome" value="{{old('nome')}}" required/>
