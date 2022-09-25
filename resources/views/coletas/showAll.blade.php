@@ -11,10 +11,16 @@
         @foreach ($coletas as $coleta)
             <div class="flex flex-wrap w-full mb-4">
                 <div class="w-2/3 flex flex-wrap">
-                    <a href="{{route('coleta.view', $coleta->id)}}" class="flex w-full text-primary text-3xl font-bold">Agendado para {{$coleta->data}}</a>
+                    <a href="{{route('coleta.view', $coleta->id)}}" class="flex w-full text-primary text-3xl font-bold">Agendado: {{$coleta->data}} | Granja: 
+                        @foreach($granjas as $granja)
+                            @if($granja->id == $coleta->id_granja)
+                                {{$granja->nome}}
+                            @endif
+                        @endforeach
+                    </a>
                     
                 </div>
-                <div>
+                <div class="flex place-items-center">
                     @if($qualidades[$coleta->id] > 0)
                         <a href="{{route('qualidade.view', $qualidades[$coleta->id])}}" class="mr-2 w-60 organosoft-btn justify-center">
                             Ver avalicação

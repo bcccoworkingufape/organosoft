@@ -18,8 +18,19 @@
                 </div>
                 <x-form-control class="w-1/2 pl-4">
                     <x-label for="avaliacaoQualidade" value="Avaliação:" />
-                    <x-input id="avaliacaoQualidade" type="text" name="avaliacaoQualidade" value="" required/>
+                    <x-select id="avaliacaoQualidade" name="avaliacaoQualidade" required>
+                        <option value="" disabled selected>-- Avaliação --</option>
+                        <option value="Ótimo">Ótimo</option>
+                        <option value="Bom">Bom</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Ruim">Ruim</option>
+                        <option value="Péssimo">Péssimo</option>
+                    </x-select>
                 </x-form-control>
+                {{-- <x-form-control class="w-1/2 pl-4">
+                    <x-label for="avaliacaoQualidade" value="Avaliação:" />
+                    <x-input id="avaliacaoQualidade" type="text" name="avaliacaoQualidade" value="" required/>
+                </x-form-control> --}}
                 <x-form-control class="w-1/2 pr-4">
                     <x-label for="descricao" value="Descrição:" />
                     <x-input id="descricao" type="text" name="descricao" value="" required/>

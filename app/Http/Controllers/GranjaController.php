@@ -40,6 +40,14 @@ class GranjaController extends Controller
     public function store(StoreGranjaRequest $request, Produtor $produtor)
     {
         $granja = new Granja($request->validated());
+        //Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime("now")).".".$extension;
+            $requestImage->move(public_path('img/perfilGranja'), $imageName);
+            $granja->imagem = $imageName;
+        }
         $endereco = new Endereco($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco->save();
         $granja->endereco_id = $endereco->id;
@@ -82,6 +90,14 @@ class GranjaController extends Controller
     public function update(UpdateGranjaRequest $request, Granja $granja)
     {
         $granja->fill($request->validated());
+        //Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime("now")).".".$extension;
+            $requestImage->move(public_path('img/perfilGranja'), $imageName);
+            $granja->imagem = $imageName;
+        }
         $endereco = $granja->endereco;
         $endereco->fill($request->safe()->only(['cep', 'cidade', 'estado', 'rua', 'bairro','numero','complemento','ponto_referencia']));
         $endereco->save();

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('cnpj');
             $table->string('telefone');
             $table->string('email');
+            $table->string('imagem');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('endereco_id')->constrained();
             $table->softDeletes();

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->time("hora");
             $table->date("data");
             $table->string("status");
+            $table->string("motorista");
+            $table->string("observacao");
 
             #$table->foreignId('id_contrato')->references('id')->on('contratos');
             #$table->foreignId('id_veiculo')->references('id')->on('veiculos');
