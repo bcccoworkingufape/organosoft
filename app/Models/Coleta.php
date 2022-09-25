@@ -16,7 +16,9 @@ class Coleta extends Model
         'id_granja',
         'hora',
         'data',
-        'status'
+        'status',
+        'motorista',
+        'observacao'
 
     ];
 

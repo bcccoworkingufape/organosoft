@@ -13,18 +13,30 @@
                 <div class="my-auto sm:mx-6 mx-4 bg-transparent border-l-2 border-solid border-white h-12 w-1"></div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-2 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <!--<x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('residuos') }}" :active="request()->routeIs('residuos')">
                         Resíduos
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('produtores.index') }}" :active="request()->routeIs('produtores.*')">
-                        Produtores
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('granjas.index') }}" :active="request()->routeIs('granjas.index')">
-                        Granjas
-                    </x-nav-link>
+                    </x-nav-link>-->
+                    <livewire:dropdown-menu
+                        :name="'Resíduos'"
+                        :links="[
+                            [
+                                'route' => route('produtores.index'),
+                                'name' => 'Produtores',
+                                'active' => request()->routeIs('produtores.*')
+                            ], [
+                                'route' => route('granjas.index'),
+                                'name' => 'Granjas',
+                                'active' => request()->routeIs('granjas.*')
+                            ], [
+                                'route' => route('coleta.show.all'),
+                                'name' => 'Coletas',
+                                'active' => request()->routeIs('coleta.show.all.*'),
+                            ],
+                        ]">
+                    </livewire:dropdown-menu>
                     <livewire:dropdown-menu
                         :name="'Infraestrutura'"
                         :links="[
@@ -60,9 +72,9 @@
                                 'active' => request()->routeIs('relatoriosInfraestrutura')
                             ],
                             [
-                                'route' => route('relatoriosInfraestrutura'),
-                                'name' => 'Outro Módulo',
-                                'active' => request()->routeIs('relatoriosInfraestrutura')
+                                'route' => route('relatoriosResiduos'),
+                                'name' => 'Resíduos',
+                                'active' => request()->routeIs('relatoriosResiduos')
                             ],
                         ]">
                     </livewire:dropdown-menu>

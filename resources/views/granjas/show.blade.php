@@ -3,7 +3,7 @@
         <div class="flex flex-wrap w-full">
             <x-card class="flex flex-wrap w-full">
                 <div class="mt-2 md:mt-0 w-full md:w-1/4 flex items-center justify-center">
-                    <img src="{{ asset('img/logo-default.png') }}" alt="logo img" class="w-40 md:w-3/4">
+                    <img src="/img/perfilGranja/{{$granja->imagem}}" alt="logo img" class="w-40 md:w-3/4">
                 </div>
                 <div class="mt-2 md:mt-0 w-full md:w-1/2 flex justify-center">
                     <div class="w-fit">

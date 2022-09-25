@@ -39,6 +39,9 @@ Route::middleware([
     Route::get('/relatoriosInfraestrutura', function () {
         return view('relatoriosInfraestrutura.index');
     })->name('relatoriosInfraestrutura');
+    Route::get('/relatoriosResiduos', function () {
+        return view('relatoriosResiduos.index');
+    })->name('relatoriosResiduos');
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');
@@ -62,6 +65,8 @@ Route::middleware([
     Route::post('/coleta/{coleta_id}/store', [ColetaController::class, 'store'])->name('coleta.store');
     Route::get('/coleta/{coleta_id}/create', [ColetaController::class, 'pCreate'])->name('coleta.p.create');
     Route::post('/coleta/create', [ColetaController::class, 'create'])->name('coleta.create');
+    Route::get('/coleta/{coleta_id}/atualizastatus', [ColetaController::class, 'atualizastatus'])->name('coleta.atualizar.status');
+    Route::get('/coletas/show', [ColetaController::class, 'showAll'])->name('coleta.show.all');
 
     Route::get('/qualidade/{coleta_id}/view', [QualidadeColetaController::class, 'view'])->name('qualidade.view');
     Route::get('/qualidade/{coleta_id}/edit', [QualidadeColetaController::class, 'edit'])->name('qualidade.edit');

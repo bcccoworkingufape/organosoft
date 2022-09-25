@@ -10,6 +10,7 @@
       <livewire:relatorio-espacos-fabrica></livewire:relatorio-espacos-fabrica>
       <livewire:relatorio-categoria-veiculos></livewire:relatorio-categoria-veiculos>
       <livewire:relatorio-equipamentos></livewire:relatorio-equipamentos>
+
     </div>
   </x-slot>
 </x-auth>
