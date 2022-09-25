@@ -26,7 +26,7 @@ class UpdateEquipamentoRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'string', 'min:1', 'max:255'],
-            'data_compra' => ['required', 'date']
+            'data_compra' => ['required', 'date','before:tomorrow']
         ];
     }
 

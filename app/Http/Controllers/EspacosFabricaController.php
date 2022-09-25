@@ -26,7 +26,7 @@ class EspacosFabricaController extends Controller
     public function create()
     {
         $fabrica = auth()->user()->fabrica()->first();
-        $tipoItemEspacoFabricas = TipoItemEspacoFabrica::where('fabricas_id', $fabrica->id)->get();
+        $tipoItemEspacoFabricas = TipoItemEspacoFabrica::where('fabrica_id', $fabrica->id)->get();
         return view('espacosFabrica.create', compact('tipoItemEspacoFabricas'));
     }
 
@@ -42,7 +42,7 @@ class EspacosFabricaController extends Controller
     public function edit(EspacosFabrica $espacosFabrica)
     {
         $fabrica = auth()->user()->fabrica()->first();
-        $tipoItemEspacoFabricas = TipoItemEspacoFabrica::where('fabricas_id', $fabrica->id)->get();
+        $tipoItemEspacoFabricas = TipoItemEspacoFabrica::where('fabrica_id', $fabrica->id)->get();
         return view('espacosFabrica.edit', compact('espacosFabrica', 'tipoItemEspacoFabricas'));
     }
 
@@ -59,7 +59,7 @@ class EspacosFabricaController extends Controller
 
         return redirect()->route('espacosFabrica.edit', $espacosFabrica)->withStatus("Espaço da fábrica atualizado com sucesso!");
     }
-    
+
     public function show(EspacosFabrica $espacosFabrica)
     {
         $espacoFabrica = $espacosFabrica;

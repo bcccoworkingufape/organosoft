@@ -6,10 +6,11 @@
     <div class="organosoft-reports-grid">
       <!-- Criar mais desses para cada novo relatório -->
       <livewire:relatorio-veiculos></livewire:relatorio-veiculos>
-      <livewire:relatorio-produtores></livewire:relatorio-produtores>
-      <livewire:relatorio-granjas></livewire:relatorio-granjas>
-      <livewire:relatorio-coletas></livewire:relatorio-coletas>
-    </div>
+      <livewire:relatorio-maquinas></livewire:relatorio-maquinas>
+      <livewire:relatorio-espacos-fabrica></livewire:relatorio-espacos-fabrica>
+      <livewire:relatorio-categoria-veiculos></livewire:relatorio-categoria-veiculos>
+      <livewire:relatorio-equipamentos></livewire:relatorio-equipamentos>
+
     </div>
   </x-slot>
 </x-auth>

@@ -39,6 +39,9 @@ Route::middleware([
     Route::get('/relatoriosInfraestrutura', function () {
         return view('relatoriosInfraestrutura.index');
     })->name('relatoriosInfraestrutura');
+    Route::get('/relatoriosResiduos', function () {
+        return view('relatoriosResiduos.index');
+    })->name('relatoriosResiduos');
     Route::get('/residuos', function () {
         return view('residuos-home');
     })->name('residuos');

@@ -1,20 +1,20 @@
 <div>
     <button wire:click.prevent="toggleModal" class="organosoft-reports-grid__item">
         <span class="icon">
-          <img src="{{asset('img/car-outline.svg')}}" alt="link relatório de veículos">
+          <img src="{{asset('img/collect-outline.svg')}}" alt="link relatório de coletas">
         </span>
         <span class="title">
           Coletas
         </span>
     </button>
-    <!--Como fábrica, desejo emitir um relatório de coletas que filtre por 
-    produtor -> FEITO, 
-    granja -> FEITO, 
-    período, 
-    valor, 
-    status, 
-    estado e 
-    município, 
+    <!--Como fábrica, desejo emitir um relatório de coletas que filtre por
+    produtor -> FEITO,
+    granja -> FEITO,
+    período,
+    valor,
+    status,
+    estado e
+    município,
     para visualizar as informações-->
     <x-jet-dialog-modal wire:model="show">
         <x-slot name="title">Relatório de Coletas</x-slot>
@@ -32,7 +32,7 @@
 
                     </x-select>
                 </x-form-control>
-                
+
                 <x-form-control class="w-full">
                     <x-label for="granja_id" value="Granja:" />
                     <x-select id="granja" name="granja" value="{{old('granja')}}" required   wire:model="granja">
@@ -42,7 +42,7 @@
                                 {{($granja->nome) }}
                                 </option>
                             @endforeach
-                            
+
                     </x-select>
                 </x-form-control>
 
@@ -55,10 +55,10 @@
                                 {{($stat->status) }}
                                 </option>
                             @endforeach
-                            
+
                     </x-select>
                 </x-form-control>
-             
+
             </x-form>
         </x-slot>
         <x-slot name="footer">

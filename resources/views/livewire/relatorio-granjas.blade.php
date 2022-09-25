@@ -1,18 +1,18 @@
 <div>
     <button wire:click.prevent="toggleModal" class="organosoft-reports-grid__item">
         <span class="icon">
-          <img src="{{asset('img/car-outline.svg')}}" alt="link relatório de veículos">
+          <img src="{{asset('img/farm-outline.svg')}}" alt="link relatório de granjas">
         </span>
         <span class="title">
           Granjas
         </span>
     </button>
-    
+
     <x-jet-dialog-modal wire:model="show">
         <x-slot name="title">Relatório de Granjas</x-slot>
         <x-slot name="content">
             <x-form wire:submit.prevent="exportar">
-                
+
                 <x-form-control class="w-full">
                     <x-label for="produtor_id" value="Produtor:" />
                     <x-select id="produtor" name="produtor" value="{{old('produtor')}}" required   wire:model="produtor">
@@ -62,7 +62,7 @@
                     <x-label for="quant_aves" value="Número de aves a partir de:" />
                     <x-input id="quant_aves" type="number"  min="0" name="quant_aves" value="{{old('quant_aves')}}" wire:model="granja"/>
                 </x-form-control>
-               
+
             </x-form>
         </x-slot>
         <x-slot name="footer">

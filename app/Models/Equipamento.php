@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipamento extends Model
 {
-    protected $fillable = ['nome','data_compra','fabricas_id'];
+    protected $fillable = ['nome','data_compra','fabrica_id'];
 
     public function fabrica()
     {

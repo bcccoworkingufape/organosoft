@@ -1,7 +1,7 @@
 <div>
     <button wire:click.prevent="toggleModal" class="organosoft-reports-grid__item">
         <span class="icon">
-          <img src="{{asset('img/car-outline.svg')}}" alt="link relatório de veículos">
+          <img src="{{asset('img/producer-outline.svg')}}" alt="link relatório de produtores">
         </span>
         <span class="title">
           Produtores
@@ -12,7 +12,7 @@
         <x-slot name="title">Relatório de Produtores</x-slot>
         <x-slot name="content">
             <x-form wire:submit.prevent="exportar">
-                
+
                 <x-form-control class="w-full">
                     <x-label for="estadoProdutor_id" value="Estado do Produtor:" />
                     <x-select id="estado" name="estado" value="{{old('estado')}}" required onchange="buscaCidades(this.value)">
